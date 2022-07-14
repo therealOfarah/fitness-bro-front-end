@@ -7,7 +7,10 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
-
+import Meals from './pages/Meals/Meals'
+import Search from './Search/Search'
+import Profile from './Profile/Profile'
+import Workout from './pages/Workout/Workout'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -48,6 +51,22 @@ const App = () => {
               <Navigate to="/login" />
             )
           }
+        />
+        <Route
+          path="/search"
+          element={<Search />}
+        />
+        <Route
+          path="/work"
+          element={<Workout/>}
+        />
+        <Route
+          path="/meals"
+          element={<Meals />}
+        />
+        <Route
+          path="/profile"
+          element={<Profile />}
         />
       </Routes>
     </>
