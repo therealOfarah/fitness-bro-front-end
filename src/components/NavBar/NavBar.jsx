@@ -20,7 +20,7 @@ const NavBar = ({ user, handleLogout }) => {
                 <a class="nav-link" href="/meals">Meals</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/workouts">Workouts</a>
+                <a class="nav-link" href="/workout">Workouts</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/profiles">Profiles</a>
@@ -31,7 +31,7 @@ const NavBar = ({ user, handleLogout }) => {
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="submit" required>Search</button>
             </form>
           </div>
         </div>
@@ -53,7 +53,7 @@ const NavBar = ({ user, handleLogout }) => {
                   <a class="nav-link" href="/meals">Meals</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/workouts">Workouts</a>
+                  <a class="nav-link" href="/workout">Workouts</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/profile">Profile</a>

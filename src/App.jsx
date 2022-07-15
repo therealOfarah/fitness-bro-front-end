@@ -52,12 +52,12 @@ const App = () => {
             )
           }
         />
-        <Route
+        {/* <Route
           path="/search"
           element={<Search />}
-        />
+        /> */}
         <Route
-          path="/workouts"
+          path="/workout"
           element={<Workout />}
         />
         <Route

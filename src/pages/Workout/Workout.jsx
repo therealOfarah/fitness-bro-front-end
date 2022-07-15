@@ -12,9 +12,9 @@ const Workout = props => {
     }
     fetchWorkouts()
   }, [])
-  console.log(workouts)
+  // console.log(workouts)
   return (
-    <main >
+    <main> 
       <h2>Workouts works</h2>
     </main>
   )
