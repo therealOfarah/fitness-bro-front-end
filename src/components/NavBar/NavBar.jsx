@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 import '../../styles/nav.css'
 
 const NavBar = ({ user, handleLogout }) => {
