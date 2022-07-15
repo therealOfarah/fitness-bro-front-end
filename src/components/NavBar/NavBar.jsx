@@ -1,4 +1,3 @@
-
 import '../../styles/nav.css'
 
 const NavBar = ({ user, handleLogout }) => {
