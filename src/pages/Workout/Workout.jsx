@@ -7,7 +7,9 @@ const Workout = props => {
   const[workouts,setWorkouts]= useState([])
 
   const handleWorkoutSearch = async FormData => {
+
     const workoutResults = await workoutSearch(FormData)
+    
     setWorkouts(workoutResults)
   }
 
