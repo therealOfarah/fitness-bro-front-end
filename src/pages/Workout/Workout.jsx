@@ -8,7 +8,7 @@ const Workout = props => {
 
   const handleWorkoutSearch = async FormData => {
     const workoutResults = await workoutSearch(FormData)
-    setWorkouts(workoutResults.results)
+    setWorkouts(workoutResults)
   }
 
   // useEffect(() => {
