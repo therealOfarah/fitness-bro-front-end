@@ -3,6 +3,8 @@ import Search from '../../Search/Search'
 import { workoutSearch } from '../../services/workoutService'
 
 
+import Exercise from '../../components/Exercise/Exercise'
+
 const Workout = props => {
   const[workouts,setWorkouts]= useState([])
 
@@ -11,13 +13,20 @@ const Workout = props => {
     setWorkouts(workoutResults)
   }
 
-  console.log(workouts)
+
   return (
     <main >
       <h2>Workouts works</h2>
       <Search handleWorkoutSearch={handleWorkoutSearch}/>
+      {workouts.map(workout => 
+        <Exercise 
+        key={workout.name}
+        name={workout.name}
+        muscle={workout.muscle}
+        workout={workout}
+        />
+      )}
     </main>
   )
 }
-
 export default Workout
