@@ -3,7 +3,7 @@ const Meals = props => {
 
   return (
     <main >
-      <h2>Yoinks</h2>
+      <h2>Meals works</h2>
     </main>
   )
 }

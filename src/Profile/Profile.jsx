@@ -1,9 +1,12 @@
-const Profile = props => {
+import { useState, useEffect } from 'react'
+import * as profileService from '../services/profileService'
+
+const Profile = (props) => {
   
 
   return (
     <main >
-      <h2>Yoinks</h2>
+      <h2>Profile works</h2>
     </main>
   )
 }

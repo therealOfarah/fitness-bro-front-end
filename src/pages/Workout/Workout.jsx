@@ -3,7 +3,7 @@ const Workout = props => {
 
   return (
     <main >
-      <h2>Yoinks</h2>
+      <h2>Workouts works</h2>
     </main>
   )
 }
