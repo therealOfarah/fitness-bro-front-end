@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Search from '../../Search/Search'
 import { workoutSearch } from '../../services/workoutService'
 
@@ -10,14 +10,6 @@ const Workout = props => {
     const workoutResults = await workoutSearch(FormData)
     setWorkouts(workoutResults)
   }
-
-  // useEffect(() => {
-  //   const fetchWorkouts = async () => {
-  //     const workoutData = await workoutService.getAllWorkouts()
-  //     setWorkouts(workoutData)
-  //   }
-  //   fetchWorkouts()
-  // }, [])
 
   console.log(workouts)
   return (
