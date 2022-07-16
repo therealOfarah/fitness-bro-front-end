@@ -9,11 +9,15 @@ const Landing = ({ user }) => {
       ? '' 
       : 
       <>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link> 
+        <Link to="/login">
+          <button className={styles.login}>Login</button>
+        </Link>
+        <Link to="/signup">
+          <button className={styles.signup}>SignUp</button>
+        </Link>
       </>
       }
-  
+      <br />
       <div id="carouselExampleCaptions"   className="carousel slide" data-bs-ride="false">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
