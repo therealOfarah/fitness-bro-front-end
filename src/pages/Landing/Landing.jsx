@@ -2,6 +2,7 @@ import styles from './Landing.module.css'
 import { Link } from 'react-router-dom'
 
 const Landing = ({ user }) => {
+  console.log(user)
   return (
     <main className={styles.container}>
       <h1>Welcome!</h1>
