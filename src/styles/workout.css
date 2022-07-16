@@ -1,0 +1,9 @@
+.workout-page {
+  text-align: center;
+  
+}
+
+.card-container {
+  display: flex;
+  margin-top: 25px;
+}
