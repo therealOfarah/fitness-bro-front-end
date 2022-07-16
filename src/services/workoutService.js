@@ -19,3 +19,14 @@ export async function getExerciseDetails(exerciseName) {
   const data =  await res.json()
   return data
 }
+
+export async function addExerciseDetails(exerciseName) {
+  const res = await fetch(`http://localhost:3001/api/workouts/search/${exerciseName}`, {
+    method: 'PATCH', 
+    headers: {'Authorization': `Bearer ${tokenService.getToken()}`,
+    'Content-Type': 'application/json'}, 
+    body: JSON.stringify(exerciseName)
+  })
+  const data =  await res.json()
+  return data
+}
