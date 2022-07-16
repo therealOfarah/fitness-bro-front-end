@@ -11,13 +11,11 @@ export async function getDetails(apiUrl) {
 export async function workoutSearch(formData){
   const res = await fetch(`http://localhost:3001/api/workouts?search=${formData.query}`)
   const data =  await res.json()
-  console.log(data)
   return data
 }
 
 export async function getExerciseDetails(exerciseName) {
-  const res = await fetch(`http://localhost:3001/api/workouts?search=${exerciseName}`)
+  const res = await fetch(`http://localhost:3001/api/workouts/search/${exerciseName}`)
   const data =  await res.json()
-  console.log(data)
   return data
 }
