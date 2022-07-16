@@ -14,8 +14,17 @@ const ExerciseDetails = (props) => {
     fetchExerciseDetails()
   }, [exerciseName])
 
+  const exerciseDetail = exerciseDetails[0]
+
   return ( 
-    console.log(props.workout)
+    <>
+      <h3>Workout Details</h3>
+      <h3>Name: {exerciseDetail?.name}</h3>
+      <h4>Type: {exerciseDetail?.type}</h4>
+      <h5>Muscle: {exerciseDetail?.muscle}</h5>
+      <h5>Equipment: {exerciseDetail?.equipment}</h5>
+      <h5>Instructions: {exerciseDetail?.instructions}</h5>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ import Meals from './pages/Meals/Meals'
 import Search from './Search/Search'
 import Profile from './Profile/Profile'
 import Workout from './pages/Workout/Workout'
+import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -63,6 +64,10 @@ const App = () => {
         <Route
           path="/workouts"
           element={<Workout />}
+        />
+        <Route
+          path="/workouts/:exerciseName"
+          element={<ExerciseDetails />}
         />
         <Route
           path="/meals"

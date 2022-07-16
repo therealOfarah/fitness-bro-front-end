@@ -5,7 +5,7 @@ const Exercise = (props) => {
   return ( 
     <>
     <ul>
-    <Link to={`/workout/${props.workout.name}`} workout={props.workout}>{props.workout.name}</Link>
+    <Link to={`/workouts/${props.workout.name}`} workout={props.workout}>{props.workout.name}</Link>
     </ul>
     </>
   );
