@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './LoginForm.module.css'
+import styles from './LoginForm.css'
 import * as authService from '../../services/authService'
 
 const LoginForm = props => {
@@ -26,13 +26,20 @@ const LoginForm = props => {
     }
   }
 
+  const { email, password } = formData
+
+  const isFormInvalid = () => {
+    return !(email && password)
+  }
+
   return (
     <form
+      id='signinform'
       autoComplete="off"
       onSubmit={handleSubmit}
       className={styles.container}
     >
-      <div className={styles.inputContainer}>
+          <h1> Log In </h1>
         <label htmlFor="email" className={styles.label}>Email</label>
         <input
           type="text"
@@ -41,9 +48,8 @@ const LoginForm = props => {
           value={formData.email}
           name="email"
           onChange={handleChange}
+          placeholder='Email'
         />
-      </div>
-      <div className={styles.inputContainer}>
         <label htmlFor="password" className={styles.label}>Password</label>
         <input
           type="password"
@@ -52,15 +58,17 @@ const LoginForm = props => {
           value={formData.pw}
           name="pw"
           onChange={handleChange}
+          placeholder='Password'
         />
-      </div>
-      <div>
-        <button className="btn btn-primary">Log In</button>
+        <button id='signinbtn'>Log In</button>
         <Link to="/">
-          <button className="btn btn-danger">Cancel</button>
+          <button id='signinbtn'>Cancel</button>
         </Link>
-      </div>
+
+        <hr />
+          <p>Don't have an account ? <Link to="/signup">Sign up</Link></p>
     </form>
+
   )
 }
 
