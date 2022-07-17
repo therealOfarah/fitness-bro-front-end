@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import * as profileService from '../../services/profileService'
+import Workout from "../Workout/Workout"
 
 const ProfileDetails = (props) => {
 
@@ -8,7 +9,7 @@ const ProfileDetails = (props) => {
   const { id } = useParams()
 
   useEffect(() => {
-    console.log(id)
+    console.log(profile)
     const fetchProfile = async () => {
       const profileData = await profileService.getProfileDetails(id)
       setProfile(profileData)

@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getExerciseDetails, addExerciseDetails } from '../../services/workoutService'
+import { getExerciseDetails, addExerciseDetail } from '../../services/workoutService'
 import '../../styles/exercise-details.css'
 
 const ExerciseDetails = (props) => {
-  const [exerciseDetails, setExerciseDetails] = useState({})
+  const [exerciseDetail, setExerciseDetail] = useState({})
   const { exerciseName } = useParams()
 
   useEffect(() => {
     const fetchExerciseDetails = async () => {
       const exerciseData = await getExerciseDetails(exerciseName)
-      setExerciseDetails(exerciseData)
+      setExerciseDetail(exerciseData[0])
     }
     fetchExerciseDetails()
   }, [exerciseName])
 
-  
-  const exerciseDetail = exerciseDetails[0]
-
-  function handleAdd() {
+  function handleAdd(e) {
     console.log('THIS WORKS') 
+    e.preventDefault()
+    addExerciseDetail(exerciseDetail)
   }
 
   return ( 

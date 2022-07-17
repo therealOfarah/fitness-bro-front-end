@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 
 import Profile from '../../components/Profile/Profile'
+import Workout from '../Workout/Workout'
 
 const Profiles = (props) => {
   const [profiles, setProfiles] = useState([])
@@ -26,6 +27,7 @@ const Profiles = (props) => {
               key={profile._id}
               name={profile.name}
               email={profile.email}
+              workout={profile.workouts}
               profile={profile}
             />
           )}
