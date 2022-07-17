@@ -1,7 +1,7 @@
 import * as tokenService from '../services/tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/workouts`
-console.log(process.env.REACT_APP_BACK_END_SERVER_URL)
+
 
 export async function getDetails(apiUrl) {
   const res = await fetch(`${BASE_URL}${apiUrl}`)
@@ -22,7 +22,7 @@ export async function getExerciseDetails(exerciseName) {
 
 export async function addExerciseDetail(exerciseDetail) {
   const res = await fetch(`http://localhost:3001/api/workouts`, {
-    method: 'PATCH', 
+    method: 'POST', 
     headers: {'Authorization': `Bearer ${tokenService.getToken()}`,
     'Content-Type': 'application/json'}, 
     body: JSON.stringify(exerciseDetail)
