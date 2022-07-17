@@ -10,11 +10,9 @@ async function getAllProfiles() {
 }
 
 async function getProfileDetails(profileId) {
-  console.log(profileId)
   const res = await fetch(`${BASE_URL}/${profileId}`, {
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   })
-  console.log(res)
   return await res.json()
 }
 

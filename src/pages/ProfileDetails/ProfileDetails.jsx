@@ -9,14 +9,13 @@ const ProfileDetails = (props) => {
   const { id } = useParams()
 
   useEffect(() => {
-    console.log(profile)
     const fetchProfile = async () => {
       const profileData = await profileService.getProfileDetails(id)
       setProfile(profileData)
     }
     fetchProfile()
   }, [])
-
+  console.log(profile.workouts)
   return ( 
     <>
       <h1>Profile Details</h1>
@@ -24,7 +23,7 @@ const ProfileDetails = (props) => {
         <div class="card-body">
           <h3 class="card-title">Name: {profile?.name}</h3>
           <h3>{profile?.email}</h3>
-          
+          <h3>{profile?.workouts}</h3>
         </div>
       </div>
     </>
