@@ -15,10 +15,10 @@ const ProfileDetails = (props) => {
     }
     fetchProfile()
   }, [])
-  console.log(profile)
-  const handleDelete = async (workout)=>{
+  // console.log(profile)
+  const handleDelete = (workout)=>{
     // console.log(profile.workouts)
-      // setProfile(profile.filter(() => profile.workouts.id !== workout.id))
+      setProfile(profile.filter((workouts) => workouts.id !== workout.id))
     }
   return ( 
     <>
