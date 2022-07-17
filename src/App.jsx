@@ -24,7 +24,7 @@ const App = () => {
     setUser(null)
     navigate('/')
   }
-
+  
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }

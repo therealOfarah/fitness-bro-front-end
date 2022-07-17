@@ -15,7 +15,11 @@ const ProfileDetails = (props) => {
     }
     fetchProfile()
   }, [])
-  console.log(profile.workouts)
+  console.log(profile)
+  const handleDelete = async (workout)=>{
+    // console.log(profile.workouts)
+      // setProfile(profile.filter(() => profile.workouts.id !== workout.id))
+    }
   return ( 
     <>
       <h1>Profile Details</h1>
@@ -25,10 +29,17 @@ const ProfileDetails = (props) => {
           <h3>{profile?.email}</h3>
             {profile.workouts?.map(workout =>
             <>
-              {workout.name}
-              {workout.muscle}
+            <div className="col-sm-6">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{workout.name}</h5>
+                  <p className="card-text">{workout.muscle}</p>
+                  <button onClick={() => handleDelete(profile.workouts)} type="button" className="btn btn-danger">Remove</button>
+                </div>
+              </div>
+            </div>
             </>
-              )} 
+            )} 
           {/* {profile?.workouts?.workout} */}
         </div>
       </div>
