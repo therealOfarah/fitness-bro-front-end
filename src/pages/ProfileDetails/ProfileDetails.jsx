@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import * as profileService from '../../services/profileService'
-import Workout from "../Workout/Workout"
+// import Workout from "../Workout/Workout"
 
 const ProfileDetails = (props) => {
 
@@ -23,7 +23,13 @@ const ProfileDetails = (props) => {
         <div class="card-body">
           <h3 class="card-title">Name: {profile?.name}</h3>
           <h3>{profile?.email}</h3>
-          <h3>{profile?.workouts}</h3>
+            {profile.workouts?.map(workout =>
+            <>
+              {workout.name}
+              {workout.muscle}
+            </>
+              )} 
+          {/* {profile?.workouts?.workout} */}
         </div>
       </div>
     </>
