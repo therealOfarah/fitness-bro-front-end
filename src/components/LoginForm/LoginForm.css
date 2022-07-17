@@ -7,7 +7,7 @@ body {
   background-position: center;
 }
 
-#signupform {
+#signinform {
   width: 300px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   background: #fff;
@@ -16,7 +16,7 @@ body {
   text-align: center;
 }
 
-#signupform h1 {
+#signinform h1 {
   color: #1c8adb;
   margin-bottom: 30px;
 }
@@ -30,7 +30,7 @@ body {
   outline: none;
 }
 
-#signupbtn {
+#signinbtn {
   background-color: #1c8adb;
   color: #fff;
   width: 100%;
@@ -43,6 +43,6 @@ body {
   cursor: pointer;
 }
 
-#signupbtn:disabled {
+#signinbtn:disabled {
   background-color: gray;
 }
