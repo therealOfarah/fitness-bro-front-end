@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 
-const Profile = ({user}) => {
+const Account = ({user}) => {
 
   return (
     <main>
@@ -17,4 +17,4 @@ const Profile = ({user}) => {
   )
 }
 
-export default Profile
+export default Account

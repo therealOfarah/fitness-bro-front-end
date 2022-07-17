@@ -10,9 +10,11 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import Meals from './pages/Meals/Meals'
 import Search from './Search/Search'
-import Profile from './Profile/Profile'
+import Account from './pages/Account/Account'
 import Workout from './pages/Workout/Workout'
 import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -46,7 +48,13 @@ const App = () => {
         />
         <Route
           path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
+          element={user ? <Profiles 
+          /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/profiles/:id"
+          element={<ProfileDetails
+          />}
         />
         <Route
           path="/changePassword"
@@ -77,8 +85,8 @@ const App = () => {
           element={<Meals />}
         />
         <Route
-          path="/profile"
-          element={<Profile
+          path="/account"
+          element={<Account
             user={user}
             />}
         />

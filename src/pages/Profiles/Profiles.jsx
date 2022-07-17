@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 
+import Profile from '../../components/Profile/Profile'
+
 const Profiles = (props) => {
   const [profiles, setProfiles] = useState([])
 
@@ -12,7 +14,7 @@ const Profiles = (props) => {
     fetchProfiles()
   }, [])
 
-  
+  console.log(profiles)
 
   return (
     <>
@@ -20,7 +22,12 @@ const Profiles = (props) => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <p key={profile._id}>{profile.name}</p>
+            <Profile 
+              key={profile._id}
+              name={profile.name}
+              email={profile.email}
+              profile={profile}
+            />
           )}
         </>
       :

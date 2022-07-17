@@ -9,6 +9,15 @@ async function getAllProfiles() {
   return await res.json()
 }
 
+async function getProfileDetails(profileId) {
+  console.log(profileId)
+  const res = await fetch(`${BASE_URL}/${profileId}`, {
+    headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+  })
+  console.log(res)
+  return await res.json()
+}
+
 async function addPhoto(photoData, profileId) {
   const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
     method: 'PUT',
@@ -20,4 +29,4 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, addPhoto }
+export { getAllProfiles, addPhoto, getProfileDetails }
