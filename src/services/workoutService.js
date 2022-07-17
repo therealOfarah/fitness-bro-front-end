@@ -20,13 +20,15 @@ export async function getExerciseDetails(exerciseName) {
   return data
 }
 
-export async function addExerciseDetails(exerciseName) {
-  const res = await fetch(`http://localhost:3001/api/workouts/search/${exerciseName}`, {
-    method: 'PATCH', 
+export async function addExerciseDetails(excerciseDetail) {
+  // console.log(excerciseDetail)
+  const res = await fetch(`${BASE_URL}`, {
+    method: 'POST', 
     headers: {'Authorization': `Bearer ${tokenService.getToken()}`,
     'Content-Type': 'application/json'}, 
-    body: JSON.stringify(exerciseName)
+    body: JSON.stringify(excerciseDetail)
   })
+  console.log(res)
   const data =  await res.json()
   return data
 }

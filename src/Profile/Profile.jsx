@@ -12,7 +12,6 @@ const Profile = ({user}) => {
           HERE
         </Link>
       </h2>
-      
     </main>
   )
 }

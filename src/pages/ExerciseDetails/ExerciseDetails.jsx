@@ -4,22 +4,22 @@ import { getExerciseDetails, addExerciseDetails } from '../../services/workoutSe
 import '../../styles/exercise-details.css'
 
 const ExerciseDetails = (props) => {
-  const [exerciseDetails, setExerciseDetails] = useState({})
+  const [exerciseDetail, setExerciseDetails] = useState({})
   const { exerciseName } = useParams()
 
   useEffect(() => {
     const fetchExerciseDetails = async () => {
       const exerciseData = await getExerciseDetails(exerciseName)
-      setExerciseDetails(exerciseData)
+      setExerciseDetails(exerciseData[0])
     }
     fetchExerciseDetails()
   }, [exerciseName])
 
-  
-  const exerciseDetail = exerciseDetails[0]
 
-  function handleAdd() {
-    console.log('THIS WORKS') 
+
+  function handleAdd(e) {
+    e.preventDefault()
+    addExerciseDetails(exerciseDetail)
   }
 
   return ( 
