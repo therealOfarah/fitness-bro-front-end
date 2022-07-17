@@ -15,8 +15,7 @@ const ExerciseDetails = (props) => {
     fetchExerciseDetails()
   }, [exerciseName])
 
-  function handleAdd(e) {
-    console.log('THIS WORKS') 
+  function handleAdd(e) { 
     e.preventDefault()
     addExerciseDetail(exerciseDetail)
   }
