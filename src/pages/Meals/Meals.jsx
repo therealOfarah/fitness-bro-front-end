@@ -12,11 +12,10 @@ const Meals = props => {
     setMeals(mealResults)
   }
 
-  // console.log(meals)
   return (
     <>
     <main className="meal-page">
-      <h2>Meals works</h2>
+      <h2>Meals</h2>
       <MealSearch handleMealSearch={handleMealSearch}/>
       {meals.map(meal =>
       <>
