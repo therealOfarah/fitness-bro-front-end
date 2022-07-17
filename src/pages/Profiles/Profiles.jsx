@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 
 import Profile from '../../components/Profile/Profile'
-import Workout from '../Workout/Workout'
 
 const Profiles = (props) => {
   const [profiles, setProfiles] = useState([])
 
+  
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()

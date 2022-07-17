@@ -27,4 +27,14 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, addPhoto, getProfileDetails }
+async function deleteWorkout(id) {
+  const res = await fetch(`${BASE_URL}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return res.json()
+}
+
+export { getAllProfiles, addPhoto, getProfileDetails,deleteWorkout }
