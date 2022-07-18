@@ -28,8 +28,7 @@ async function addPhoto(photoData, profileId) {
 }
 
 async function deleteWorkout(id){
-  // console.log(id)
-  const res = await fetch(`${BASE_URL}/${id}`, {
+  const res = await fetch(`${BASE_URL}/workouts/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
@@ -40,7 +39,7 @@ async function deleteWorkout(id){
 }
 async function deletedMeal(id){
   console.log(id)
-  const res = await fetch(`${BASE_URL}/${id}`, {
+  const res = await fetch(`${BASE_URL}/meals/${id}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
