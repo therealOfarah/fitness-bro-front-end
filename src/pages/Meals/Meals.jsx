@@ -22,19 +22,19 @@ const Meals = props => {
       <MealSearch handleMealSearch={handleMealSearch}/>
       {meals.map(meal =>
       <>
-      <div class="card" style={{width: "18rem"}}>
-        <div class="card-body">
-          <h1 class="card-title">{meal?.name}</h1>
-          <h3>Calories:{meal?.calories}g</h3>
-          <h3>Carbohydrates:{meal?.carbohydrates_total_g}g</h3>
-          <h3>Protein:{meal?.protein_g}g</h3>
-          <h3>Fats:{meal?.fat_total_g}g</h3>
-          <h3>Recomended Serviing Size:{meal?.serving_size_g}g</h3>
-          <button onClick={handleAdd}class="btn btn-success">Add</button>
-      </div>
-      </div>
+        <div class="card" style={{width: "18rem"}}>
+          <div class="card-body">
+            <h1 class="card-title">{meal?.name}</h1>
+            <h3>Calories:{meal?.calories}g</h3>
+            <h3>Carbohydrates:{meal?.carbohydrates_total_g}g</h3>
+            <h3>Protein:{meal?.protein_g}g</h3>
+            <h3>Fats:{meal?.fat_total_g}g</h3>
+            <h3>Recomended Serviing Size:{meal?.serving_size_g}g</h3>
+            <button onClick={handleAdd}class="btn btn-success">Add</button>
+          </div>
+        </div>
       </>
-        )}
+      )}
     </main>
     </>
   )

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 // import Workout from "../Workout/Workout"
 
+
 const ProfileDetails = (props) => {
 
   const [profile, setProfile] = useState([])
@@ -43,7 +44,7 @@ const ProfileDetails = (props) => {
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{workout.name}</h5>
-                  <p className="card-text">{workout.muscle}</p>
+                  <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
               <>
                 <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn btn-danger">Remove</button>
@@ -61,8 +62,8 @@ const ProfileDetails = (props) => {
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{meal.name}</h5>
-                  <p className="card-text">{meal.calories}</p>
-                  <p className="card-text">{meal.protein_g}g</p>
+                  <p className="card-text">Calories: {meal.calories}</p>
+                  <p className="card-text">Protein: {meal.protein_g}g</p>
                   {props.user.profile === profile._id ? 
               <>
                 <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn btn-danger">Remove</button>
@@ -74,7 +75,7 @@ const ProfileDetails = (props) => {
             </div>
             </>
             )} 
-            {props.user.profile === profile._id ?
+              {props.user.profile === profile._id ?
             <>
             <p></p>
             </>
@@ -91,7 +92,8 @@ const ProfileDetails = (props) => {
                                 <br/>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                             </div>
-                            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+
+                        <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                             <form id="algin-form">
                                 <div class="form-group">
                                     <h4>Leave a comment</h4>
@@ -104,8 +106,9 @@ const ProfileDetails = (props) => {
                             </form>
                         </div>
                     </div>
-                  </div>
                 </div>
+              </div>
+
             </section>
             }
           {/* {profile?.workouts?.workout} */}
