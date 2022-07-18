@@ -16,6 +16,12 @@ const ProfileDetails = (props) => {
       setWorkouts(profileData.workouts)
     }
     fetchProfile()
+  }, [])
+
+  const handleDeleteWorkout = async (workout) =>{
+    const deletedWorkout = await profileService.deleteWorkout(workout)
+    setProfile(profile.filter((workouts) => workouts.id !== deletedWorkout.id))
+    }
 
   return ( 
     <>
