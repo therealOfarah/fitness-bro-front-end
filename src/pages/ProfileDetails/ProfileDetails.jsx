@@ -41,22 +41,20 @@ const ProfileDetails = (props) => {
             </div>
             </>
             )} 
-
             {profile.meals?.map(meal =>
             <>
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">{meal.name}</h5>
+                  <h5 className="card-title">{meal}</h5>
                   <h3>okay</h3>
-                  <p className="card-text">{meal.calories}</p>
+                  <p className="card-text">{meal.name}</p>
                   <button onClick={() => handleDelete(profile.meals)} type="button" className="btn btn-danger">Remove</button>
                 </div>
               </div>
             </div>
             </>
             )} 
-
         </div>
       </div>
     </>
