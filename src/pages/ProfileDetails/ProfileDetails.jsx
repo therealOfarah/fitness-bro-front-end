@@ -21,15 +21,15 @@ const ProfileDetails = (props) => {
     }
     fetchProfile()
   }, [id])
-  console.log(profile)
+  
   const handleDeleteWorkout = async (id) => {
-    const deletedWorkout = await profileService.deleteWorkout(id)
-    setWorkouts(workouts.filter((workout) => workout._id !== deletedWorkout))
+    await profileService.deleteWorkout(id)
+    setWorkouts(workouts.filter((workout) => workout._id !== id))
     }
 
-    const handleDeleteMeal = async(id) => {
-      const deletedMeal = await profileService.deletedMeal(id)
-      setMeal(meals.filter((meal) => meal._id !== deletedMeal))
+    const handleDeleteMeal = async (id) => {
+      await profileService.deletedMeal(id)
+      setMeal(meals.filter((meal) => meal._id !== id))
     }
   return ( 
     <>
