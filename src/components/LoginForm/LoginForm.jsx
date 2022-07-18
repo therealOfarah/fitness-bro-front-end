@@ -26,10 +26,10 @@ const LoginForm = props => {
     }
   }
 
-  const { email, password } = formData
+  const { email, pw } = formData
 
   const isFormInvalid = () => {
-    return !(email && password)
+    return !(email && pw)
   }
 
   return (
@@ -60,7 +60,7 @@ const LoginForm = props => {
           onChange={handleChange}
           placeholder='Password'
         />
-        <button id='signinbtn'>Log In</button>
+        <button id='signinbtn' disabled={isFormInvalid()} className={styles.button}>Log In</button>
         <Link to="/">
           <button id='signinbtn'>Cancel</button>
         </Link>
