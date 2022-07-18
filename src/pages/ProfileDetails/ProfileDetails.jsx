@@ -22,12 +22,14 @@ const ProfileDetails = (props) => {
     fetchProfile()
   }, [id])
   console.log(profile)
-  const handleDeleteWorkout = (id) => {
-    setWorkouts(workouts.filter((workout) => workout._id !== id))
+  const handleDeleteWorkout = async (id) => {
+    const deletedWorkout = await profileService.deleteWorkout(id)
+    setWorkouts(workouts.filter((workout) => workout._id !== deletedWorkout))
     }
 
-    const handleDeleteMeal = (id) => {
-      setMeal(meals.filter((meal) => meal._id !== id))
+    const handleDeleteMeal = async(id) => {
+      const deletedMeal = await profileService.deletedMeal(id)
+      setMeal(meals.filter((meal) => meal._id !== deletedMeal))
     }
   return ( 
     <>
@@ -90,6 +92,7 @@ const ProfileDetails = (props) => {
                                 <br/>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                             </div>
+
                         <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                             <form id="algin-form">
                                 <div class="form-group">
@@ -105,6 +108,7 @@ const ProfileDetails = (props) => {
                     </div>
                 </div>
               </div>
+
             </section>
             }
           {/* {profile?.workouts?.workout} */}
