@@ -10,7 +10,6 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import Meals from './pages/Meals/Meals'
 import Search from './Search/Search'
-import Account from './pages/Account/Account'
 import Workout from './pages/Workout/Workout'
 import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
@@ -54,6 +53,7 @@ const App = () => {
         <Route
           path="/profiles/:id"
           element={<ProfileDetails
+            user={user}
           />}
         />
         <Route
@@ -83,12 +83,6 @@ const App = () => {
         <Route
           path="/meals"
           element={<Meals />}
-        />
-        <Route
-          path="/account"
-          element={<Account
-            user={user}
-            />}
         />
       </Routes>
     </>
