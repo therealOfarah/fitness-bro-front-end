@@ -37,7 +37,7 @@ const Landing = ({ user }) => {
         </ul>
       </div>
 
-      <h1 className='testing'>Testing</h1>
+      <h2>Testing</h2>
 
 
     </main>

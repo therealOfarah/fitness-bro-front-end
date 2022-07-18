@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import * as profileService from '../../services/profileService'
-// import Workout from "../Workout/Workout"
 
 const ProfileDetails = (props) => {
 
@@ -15,12 +14,13 @@ const ProfileDetails = (props) => {
     }
     fetchProfile()
   }, [])
-  console.log(profile?.meals.name)
+  
   const handleDelete = async (workout) =>{
-    // console.log(profile.workouts)
     const deletedWorkout = await profileService.deleteWorkout(workout)
     setProfile(profile.filter((workouts) => workouts.id !== deletedWorkout.id))
     }
+
+
   return ( 
     <>
       <h1>Profile Details</h1>
@@ -41,14 +41,14 @@ const ProfileDetails = (props) => {
             </div>
             </>
             )} 
-            {profile.meals?.map(meal =>
+            {profile?.meals?.map(meal =>
             <>
             <div className="col-sm-6">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{meal?.name}</h5>
-                  <p className="card-text">{meal?.calories}</p>
-                  <p className="card-text">{meal?.protein}</p>
+                  <p className="card-text">{meal.calories}</p>
+                  <p className="card-text">{meal.protein}</p>
                   <button onClick={() => handleDelete(profile.meals)} type="button" className="btn btn-danger">Remove</button>
                 </div>
               </div>
