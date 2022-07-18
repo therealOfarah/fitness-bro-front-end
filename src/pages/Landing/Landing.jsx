@@ -1,10 +1,39 @@
-import styles from './Landing.module.css'
+import styles from './Landing.css'
 import { Link } from 'react-router-dom'
-<head>
-<script src="https://kit.fontawesome.com/8f2d036c38.js" crossorigin="anonymous"></script>
-</head>
+import { useEffect, useState } from 'react'
+import {carouselImages} from './CarouselImages.js'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
+
 const Landing = ({ user }) => {
-  console.log(user)
+
+  const [carouselCounter, setCarouselCounter] = useState(0)
+
+  // useEffect(() => {
+    
+  // })
+  let carouselImage = carouselImages[carouselCounter]
+  
+  function slideLeft() {
+    if (carouselCounter === 0) {
+      setCarouselCounter(carouselImages.length - 1)
+    } else {
+      setCarouselCounter(carouselCounter - 1)
+    }
+  }
+
+  function slideRight() {
+    if (carouselCounter === carouselImages.length - 1) {
+      setCarouselCounter(0)
+    } else {
+      setCarouselCounter(carouselCounter + 1)
+    }
+  }
+
+  useEffect(() => {
+    
+  }, [carouselCounter])
+
   return (
     <main className={styles.container}>
       <h1>Welcome!</h1>
@@ -21,25 +50,27 @@ const Landing = ({ user }) => {
       </>
       }
       <br />
+      <TransitionGroup>
+      <CSSTransition
+      key={carouselImages.index}
+      timeout={10000}
+      classNames='fade'
+      appear={true}
+      >
       <div className='carousel'>
-        <button className='carousel-button prev'><i class="fa-solid fa-arrow-left-long"></i></button>
-        <button className='carousel-button next'><i className="fa-solid fa-arrow-right-long"></i></button>
+        <button className='carousel-button prev' onClick={slideLeft}>LEFT LEFT</button>
+        <button className='carousel-button next' onClick={slideRight}>RIGHT RIGHT</button>
         <ul>
           <li className='slide'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95mGZw6daibPByjfzprLe0LMdIeU_l5Ajmg&usqp=CAU" alt="Workout 1" />
-          </li>
-          <li className='slide'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95mGZw6daibPByjfzprLe0LMdIeU_l5Ajmg&usqp=CAU" alt="Workout 1" />
-          </li>
-          <li className='slide'>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95mGZw6daibPByjfzprLe0LMdIeU_l5Ajmg&usqp=CAU" alt="Workout 1" />
+            <img
+            src={carouselImage.url}
+            alt={carouselImage.alt}
+            />
           </li>
         </ul>
       </div>
-
-      <h2>Testing</h2>
-
-
+      </CSSTransition>
+      </TransitionGroup>
     </main>
   )
 }
