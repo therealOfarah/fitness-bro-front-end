@@ -21,10 +21,10 @@ const Workout = props => {
         <Search handleWorkoutSearch={handleWorkoutSearch}/>
         {workouts.map(workout => 
           <Exercise 
-          key={workout.name}
-          name={workout.name}
-          muscle={workout.muscle}
-          workout={workout}
+            key={workout.name}
+            name={workout.name}
+            muscle={workout.muscle}
+            workout={workout}
           />
         )}
       </div>
