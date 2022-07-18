@@ -53,7 +53,7 @@ const App = () => {
         <Route
           path="/profiles/:id"
           element={<ProfileDetails
-            user={user}
+          user={user}
           />}
         />
         <Route
