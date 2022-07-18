@@ -1,6 +1,6 @@
 import { useState } from "react"
 import MealSearch from "../MealSearch/MealSearch"
-import { mealSearch } from '../../services/mealService'
+import { mealSearch, addMealDetail } from '../../services/mealService'
 import { Link } from "react-router-dom"
 import '../../styles/meals.css'
 
@@ -11,7 +11,10 @@ const Meals = props => {
     const mealResults = await mealSearch(FormData)
     setMeals(mealResults)
   }
-
+  function handleAdd(e) { 
+    e.preventDefault()
+    addMealDetail(meals)
+  }
   return (
     <>
     <main className="meal-page">
@@ -22,14 +25,13 @@ const Meals = props => {
       <div class="card" style={{width: "18rem"}}>
         <div class="card-body">
           <h1 class="card-title">{meal?.name}</h1>
-          <p class="card-text"></p>
           <h3>Calories:{meal?.calories}g</h3>
           <h3>Carbohydrates:{meal?.carbohydrates_total_g}g</h3>
           <h3>Protein:{meal?.protein_g}g</h3>
           <h3>Fats:{meal?.fat_total_g}g</h3>
           <h3>Recomended Serviing Size:{meal?.serving_size_g}g</h3>
-          <button class="btn btn-success"><Link to="/workouts">Add</Link></button>
-        </div>
+          <button onClick={handleAdd}class="btn btn-success">Add</button>
+      </div>
       </div>
       </>
         )}

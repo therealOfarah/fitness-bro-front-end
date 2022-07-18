@@ -7,3 +7,14 @@ export async function mealSearch(formData){
   const data =  await res.json()
   return data
 }
+
+export async function addMealDetail(meals) {
+  const res = await fetch(`${BASE_URL}`, {
+    method: 'POST', 
+    headers: {'Authorization': `Bearer ${tokenService.getToken()}`,
+    'Content-Type': 'application/json'}, 
+    body: JSON.stringify(meals)
+  })
+  const data =  await res.json()
+  return data
+}
