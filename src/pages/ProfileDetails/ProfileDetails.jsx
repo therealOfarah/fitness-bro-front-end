@@ -57,7 +57,7 @@ const ProfileDetails = (props) => {
           <h3>{profile?.email}</h3>
             {workouts?.map(workout =>
             <>
-            <div className="col-sm-6">
+            {/* <div className="col-sm-6"> */}
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title">{workout.name}</h5>
@@ -70,7 +70,7 @@ const ProfileDetails = (props) => {
             }
                 </div>
               </div>
-            </div>
+            {/* </div> */}
             </>
             )} 
             {profile.comments?.map(review => {
