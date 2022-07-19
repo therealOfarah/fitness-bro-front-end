@@ -96,7 +96,7 @@ const ProfileDetails = (props) => {
             </>
             :
             <section>
-                <div class="container">
+                <div className="c-container">
                 <h1>Comments</h1>
                   {/* <div class="comment mt-4 text-justify float-left">
                     <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/>
@@ -110,10 +110,10 @@ const ProfileDetails = (props) => {
                   <div class="form-group">
                     <h4>Leave a comment</h4>
                     <label for="message">Message</label>
-                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" class="form-control" ></textarea>
+                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="submit" id="post" class="btn">Post Comment</button>
+                    <button type="submit" id="post" className="c-btn">Post Comment</button>
                   </div>
                 </form>
               </div>

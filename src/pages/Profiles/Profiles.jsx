@@ -25,7 +25,7 @@ const Profiles = (props) => {
         <ul className='container'>
           {profiles.map(profile =>
             <div className='box'>
-                <Profile 
+                <Profile
                   key={profile._id}
                   name={profile.name}
                   email={profile.email}
