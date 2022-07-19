@@ -6,11 +6,10 @@ import * as commentService from '../../services/commentService'
 
 const ProfileDetails = (props) => {
 
-  const [profile, setProfile] = useState([])
+  const [profile, setProfile] = useState({})
   const [workouts, setWorkouts] = useState([])
   const [meals, setMeal] = useState([])
-  const [form, setForm] = useState([])
-  const [comments, setComments] = useState([])
+  const [form, setForm] = useState({})
   
   const { id } = useParams()
 
@@ -20,23 +19,20 @@ const ProfileDetails = (props) => {
       setProfile(profileData)
       setWorkouts(profileData.workouts)
       setMeal(profileData.meals)
-      setComments(profileData.comments)
     }
     fetchProfile()
   }, [id])
 
   const handleChange = (evt) => {
     setForm({...form, [evt.target.name]:evt.target.value})
-    addComment(form)
   }
 
-  const addComment = async (newCommentData) => {
-    const newComment = await commentService.create(newCommentData)
-  } 
-  console.log(comments)
-
+  
   const handleSubmit = async (evt) => {
     evt.preventDefault()
+    const updatedProfile = await commentService.create(form, profile._id)
+    console.log(updatedProfile)
+    setProfile(updatedProfile)
   }
   
   const handleDeleteWorkout = async (id) => {
@@ -104,7 +100,7 @@ const ProfileDetails = (props) => {
             </>
             :
             <section>
-              <div class="container">
+                <div class="container">
                 <h1>Comments</h1>
                   {/* <div class="comment mt-4 text-justify float-left">
                     <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/>
@@ -114,14 +110,14 @@ const ProfileDetails = (props) => {
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                   </div> */}
                   {/* <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4"> */}
-                <form id="algin-form">
+                <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
                     <h4>Leave a comment</h4>
                     <label for="message">Message</label>
-                    <textarea type="text" onChange={handleChange} name="comment" id=""msg cols="30" rows="5" class="form-control" ></textarea>
+                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" class="form-control" ></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="button" id="post" class="btn">Post Comment</button>
+                    <button type="submit" id="post" class="btn">Post Comment</button>
                   </div>
                 </form>
               </div>
