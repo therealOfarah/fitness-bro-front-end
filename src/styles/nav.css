@@ -4,3 +4,11 @@ nav {
   font-size: 20px;
 }
 
+.brand{
+  font-family: Stencil Std, fantasy;
+  color: #b56576;
+}
+
+span {
+  color: #b56576;
+}

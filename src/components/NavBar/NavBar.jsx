@@ -11,7 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
     {user ?
       <Navbar  variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand>Fitness Bros</Navbar.Brand>
+          <Navbar.Brand className='brand'>Fitness <span>Bros</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
