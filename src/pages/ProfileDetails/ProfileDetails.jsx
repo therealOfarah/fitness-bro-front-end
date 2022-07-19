@@ -57,9 +57,8 @@ const ProfileDetails = (props) => {
           <h3>{profile?.email}</h3>
             {workouts?.map(workout =>
             <>
-            {/* <div className="col-sm-6"> */}
               <div className="card">
-                <div className="card-body">
+                <div className="box-body">
                   <h5 className="card-title">{workout.name}</h5>
                   <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
@@ -70,7 +69,6 @@ const ProfileDetails = (props) => {
             }
                 </div>
               </div>
-            {/* </div> */}
             </>
             )} 
             {profile.comments?.map(review => {
@@ -81,9 +79,8 @@ const ProfileDetails = (props) => {
             })}
             {meals?.map(meal =>
             <>
-            <div className="col-sm-6">
               <div className="card">
-                <div className="card-body">
+                <div className="box-body">
                   <h5 className="card-title">{meal.name}</h5>
                   <p className="card-text">Calories: {meal.calories}</p>
                   <p className="card-text">Protein: {meal.protein_g}g</p>
@@ -95,7 +92,6 @@ const ProfileDetails = (props) => {
             }
                 </div>
               </div>
-            </div>
             </>
             )} 
               {props.user.profile === profile._id ?
@@ -104,9 +100,8 @@ const ProfileDetails = (props) => {
             </>
             :
             <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <div className="container">
+                    <div className="comments">
                             <h1>Comments</h1>
                             {/* <div class="comment mt-4 text-justify float-left">
                                 <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/>
@@ -115,26 +110,20 @@ const ProfileDetails = (props) => {
                                 <br/>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
                             </div> */}
-
-                        <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                             <form id="algin-form">
                                 <div class="form-group">
                                     <h4>Leave a comment</h4>
                                     <label for="message">Message</label>
                                     <textarea type="text" onChange={handleChange} name="comment" id=""msg cols="30" rows="5" class="form-control" ></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <button type="button" id="post" class="btn">Post Comment</button>
                                 </div>
                             </form>
-                        </div>
-                    </div>
                 </div>
               </div>
-
             </section>
             }
-          {/* {profile?.workouts?.workout} */}
         </div>
       </div>
     </>
