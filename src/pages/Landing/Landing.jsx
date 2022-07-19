@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {carouselImages} from './CarouselImages.js'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 
 
 const Landing = ({ user }) => {
 
   const [carouselCounter, setCarouselCounter] = useState(0)
 
-  // useEffect(() => {
-    
-  // })
   let carouselImage = carouselImages[carouselCounter]
   
   function slideLeft() {
@@ -36,7 +36,7 @@ const Landing = ({ user }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Welcome!</h1>
+      <h1>Search a Meal or Workout</h1>
       {user 
       ? '' 
       : 
@@ -51,25 +51,27 @@ const Landing = ({ user }) => {
       }
       <br />
       <TransitionGroup>
-      <CSSTransition
-      key={carouselImages.index}
-      timeout={10000}
-      classNames='fade'
-      appear={true}
-      >
-      <div className='carousel'>
-        <button className='carousel-button prev' onClick={slideLeft}>LEFT LEFT</button>
-        <button className='carousel-button next' onClick={slideRight}>RIGHT RIGHT</button>
-        <ul>
-          <li className='slide'>
-            <img
-            src={carouselImage.url}
-            alt={carouselImage.alt}
-            />
-          </li>
-        </ul>
-      </div>
-      </CSSTransition>
+        <CSSTransition
+        key={carouselImages[carouselCounter]}
+        timeout={6000}
+        classNames='fade'
+        appear={true}
+        >
+        <div className='background-carousel'>
+          <div className='carousel'>
+            <button className='carousel-button prev' onClick={slideLeft}><FontAwesomeIcon icon={faArrowLeftLong} /></button>
+            <button className='carousel-button next' onClick={slideRight}><FontAwesomeIcon icon={faArrowRightLong} /></button>
+            <ul>
+              <li className='slide'>
+                <img
+                src={carouselImage.url}
+                alt={carouselImage.alt}
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+        </CSSTransition>
       </TransitionGroup>
     </main>
   )
