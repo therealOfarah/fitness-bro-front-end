@@ -27,7 +27,7 @@ const ProfileDetails = (props) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
 
-  
+  console.log(profile)
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const updatedProfile = await commentService.create(form, profile._id)
@@ -70,7 +70,7 @@ const ProfileDetails = (props) => {
             )} 
             {profile.comments?.map(review => 
               <>
-                <h1>{review?.author}</h1>
+                <h1>{review.author?.name}</h1>
                 <h1>{review?.comment}</h1>
               </>
             )}
@@ -99,14 +99,14 @@ const ProfileDetails = (props) => {
             <section>
                 <div className="c-container">
                 <h1>Comments</h1>
-                  {/* <div class="comment mt-4 text-justify float-left">
+                  <div class="comment mt-4 text-justify float-left">
                     <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/>
                     <h4>Jhon Doe</h4>
                     <span>- 20 October, 2018</span>
                     <br/>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                  </div> */}
-                  {/* <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4"> */}
+                  </div>
+                  <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
                     <h4>Leave a comment</h4>
@@ -117,6 +117,7 @@ const ProfileDetails = (props) => {
                     <button type="submit" id="post" className="c-btn">Post Comment</button>
                   </div>
                 </form>
+                </div>
               </div>
             </section>
             }
