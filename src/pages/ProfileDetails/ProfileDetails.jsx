@@ -44,6 +44,7 @@ const ProfileDetails = (props) => {
       await profileService.deletedMeal(id)
       setMeal(meals.filter((meal) => meal._id !== id))
     }
+
   return ( 
     <>
       <h1>Profile Details</h1>
@@ -67,12 +68,12 @@ const ProfileDetails = (props) => {
               </div>
             </>
             )} 
-            {profile.comments?.map(review => {
+            {profile.comments?.map(review => 
               <>
                 <h1>{review?.author}</h1>
                 <h1>{review?.comment}</h1>
               </>
-            })}
+            )}
             {meals?.map(meal =>
             <>
               <div className="card">
