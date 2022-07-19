@@ -53,9 +53,8 @@ const ProfileDetails = (props) => {
           <h3>{profile?.email}</h3>
             {workouts?.map(workout =>
             <>
-            <div className="col-sm-6">
               <div className="card">
-                <div className="card-body">
+                <div className="box-body">
                   <h5 className="card-title">{workout.name}</h5>
                   <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
@@ -66,7 +65,6 @@ const ProfileDetails = (props) => {
             }
                 </div>
               </div>
-            </div>
             </>
             )} 
             {profile.comments?.map(review => {
@@ -77,9 +75,8 @@ const ProfileDetails = (props) => {
             })}
             {meals?.map(meal =>
             <>
-            <div className="col-sm-6">
               <div className="card">
-                <div className="card-body">
+                <div className="box-body">
                   <h5 className="card-title">{meal.name}</h5>
                   <p className="card-text">Calories: {meal.calories}</p>
                   <p className="card-text">Protein: {meal.protein_g}g</p>
@@ -91,7 +88,6 @@ const ProfileDetails = (props) => {
             }
                 </div>
               </div>
-            </div>
             </>
             )} 
               {props.user.profile === profile._id ?
@@ -100,7 +96,7 @@ const ProfileDetails = (props) => {
             </>
             :
             <section>
-                <div class="container">
+                <div className="c-container">
                 <h1>Comments</h1>
                   {/* <div class="comment mt-4 text-justify float-left">
                     <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/>
@@ -114,16 +110,15 @@ const ProfileDetails = (props) => {
                   <div class="form-group">
                     <h4>Leave a comment</h4>
                     <label for="message">Message</label>
-                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" class="form-control" ></textarea>
+                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
                   </div>
                   <div class="form-group">
-                    <button type="submit" id="post" class="btn">Post Comment</button>
+                    <button type="submit" id="post" className="c-btn">Post Comment</button>
                   </div>
                 </form>
               </div>
             </section>
             }
-          {/* {profile?.workouts?.workout} */}
         </div>
       </div>
     </>
