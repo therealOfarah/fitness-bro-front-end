@@ -28,11 +28,10 @@ const ProfileDetails = (props) => {
   const handleChange = (evt) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
-  console.log(profile)
+
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const updatedProfile = await commentService.create(form, profile._id)
-    console.log(updatedProfile)
     setProfile(updatedProfile)
   }
   
@@ -41,10 +40,16 @@ const ProfileDetails = (props) => {
     setWorkouts(workouts.filter((workout) => workout._id !== id))
     }
 
-    const handleDeleteMeal = async (id) => {
-      await profileService.deletedMeal(id)
-      setMeal(meals.filter((meal) => meal._id !== id))
-    }
+  const handleDeleteMeal = async (id) => {
+    await profileService.deletedMeal(id)
+    setMeal(meals.filter((meal) => meal._id !== id))
+  }
+
+  const handleDeleteComment = async (id) => {
+    const updatedProfile = await commentService.deleteComment(id)
+    setProfile(updatedProfile)
+  }
+
 
     const handleDeleteComment = async (id) => {
       // await profileService.deletedComment(id)
@@ -102,7 +107,7 @@ const ProfileDetails = (props) => {
                 <div className="c-container">
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
-                  <div class="form-group">
+
                   {comment?.map(comment => 
               <div class='reviews'>
                     {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
@@ -113,6 +118,7 @@ const ProfileDetails = (props) => {
                     
               </div>
             )}
+
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
