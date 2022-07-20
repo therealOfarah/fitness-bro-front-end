@@ -45,10 +45,6 @@ const ProfileDetails = (props) => {
     setMeal(meals.filter((meal) => meal._id !== id))
   }
 
-  const handleDeleteComment = async (id) => {
-    const updatedProfile = await commentService.deleteComment(id)
-    setProfile(updatedProfile)
-  }
 
 
     const handleDeleteComment = async (id) => {
