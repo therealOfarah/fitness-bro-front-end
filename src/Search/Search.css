@@ -1,0 +1,31 @@
+.btn {
+  background-color: rgb(216, 212, 212);
+}
+
+.btn:hover{
+  background-color: #b56576;
+  box-shadow:0px 10px 25px rgba(243, 92, 143, 0.445);
+}
+
+
+.btn-remove{
+  background-color: rgb(216, 212, 212);
+  box-shadow:0px 8px 15px rgba(0,0,0,0.1);
+  width:150px;
+  height:45px;
+  margin: 1em;
+  border-radius:45px;
+  cursor:pointer;
+  border:none;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:bold;
+  transition:all 0.3s ease;
+}
+
+.btn-remove:hover{
+  background-color: #fd0d41;
+  transform:translateY(-7px);
+  color:#fff;
+  box-shadow:0px 10px 25px rgba(243, 92, 143, 0.445);
+}

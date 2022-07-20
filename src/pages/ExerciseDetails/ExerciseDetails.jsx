@@ -43,7 +43,7 @@ const ExerciseDetails = (props) => {
           <h5>Muscle: {exerciseDetail?.muscle}</h5>
           <h5>Equipment: {exerciseDetail?.equipment}</h5>
           <h5>Instructions: {exerciseDetail?.instructions}</h5>
-          <button onClick={handleAdd} type="button" className="btn btn-success">Add</button>
+          <button onClick={handleAdd} type="button" className="btn">Add</button>
         </div>
       </div>
 

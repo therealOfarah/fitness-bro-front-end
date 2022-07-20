@@ -30,7 +30,7 @@ const Meals = props => {
             <h3>Protein:{meal?.protein_g}g</h3>
             <h3>Fats:{meal?.fat_total_g}g</h3>
             <h3>Recomended Serviing Size:{meal?.serving_size_g}g</h3>
-            <button onClick={handleAdd}class="btn btn-success">Add</button>
+            <button onClick={handleAdd}class="btn">Add</button>
           </div>
         </div>
       </>

@@ -60,7 +60,7 @@ const ProfileDetails = (props) => {
                   <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
               <>
-                <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn btn-danger">Remove</button>
+                <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn-remove">Remove</button>
               </>
               : ''
             }
@@ -90,7 +90,7 @@ const ProfileDetails = (props) => {
                   <p className="card-text">Protein: {meal.protein_g}g</p>
                   {props.user.profile === profile._id ? 
               <>
-                <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn btn-danger">Remove</button>
+                <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn-remove">Remove</button>
               </>
               : <p></p>
             }

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './Search.css'
 
 const Search = (props) => {
   const [formData, setFormData] = useState({query: ''})
@@ -28,7 +29,7 @@ const Search = (props) => {
                   class="form-control"
                   placeholder="Pick a Body Part to Work"
                 />
-                <button className="btn btn-primary"type="submit">Search</button>
+                <button className="btn"type="submit">Search</button>
               </form>
               <div class="container"></div>
           </div>
