@@ -68,7 +68,7 @@ const ProfileDetails = (props) => {
                   <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
               <>
-                <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn btn-danger">Remove</button>
+                <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn-remove">Remove</button>
               </>
               : ''
             }
@@ -76,7 +76,6 @@ const ProfileDetails = (props) => {
               </div>
             </>
             )} 
-
             {meals?.map(meal =>
             <>
               <div className="card">
@@ -86,7 +85,7 @@ const ProfileDetails = (props) => {
                   <p className="card-text">Protein: {meal.protein_g}g</p>
                   {props.user.profile === profile._id ? 
               <>
-                <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn btn-danger">Remove</button>
+                <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn-remove">Remove</button>
               </>
               : <p></p>
             }
@@ -95,31 +94,33 @@ const ProfileDetails = (props) => {
             </>
             )} 
               {props.user.profile === profile._id ?
-            <>
-            <p></p>
-            </>
+            
+            <div class="form-group">
+                  {profile.comments?.map(comment => 
+                  <div class='reviews'>
+                    <h4>{comment.author?.name}</h4>
+                    <p class='comment'>{comment?.comment}</p>
+                  </div>
+                  )}
+            </div>
             :
             <section>
                 <div className="c-container">
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
-
-                  {comment?.map(comment => 
-              <div class='reviews'>
-                    {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
-                    <h4>{comment.author?.name}</h4>
-                    {/* <span>- 20 October, 2018</span> */}
-                    <p class='comment'>{comment?.comment}</p>
-                    <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
-                    
-              </div>
-            )}
-
+                  <div class="form-group">
+                    {profile.comments?.map(comment => 
+                    <div class='reviews'>
+                      <h4>{comment.author?.name}</h4>
+                      <p class='comment'>{comment?.comment}</p>
+                      <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
+                    </div>
+                    )}
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
                   </div>
-                  <div class="form-group">
+                  <div className="procomments">
                     <button type="submit" id="post" className="c-btn">Post Comment</button>
                   </div>
                 </form>
@@ -128,6 +129,7 @@ const ProfileDetails = (props) => {
             }
         </div>
       </div>
+
     </>
   );
 }

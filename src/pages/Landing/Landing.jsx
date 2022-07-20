@@ -38,14 +38,13 @@ const Landing = ({ user }) => {
       : 
       <>
         <Link to="/login">
-          <button className={styles.login}>Login</button>
+          <button className='login'>Login</button>
         </Link>
         <Link to="/signup">
-          <button className={styles.signup}>SignUp</button>
+          <button className='signup'>SignUp</button>
         </Link>
       </>
       }
-      <br />
       <TransitionGroup>
         <CSSTransition
         in={carouselCounter}
