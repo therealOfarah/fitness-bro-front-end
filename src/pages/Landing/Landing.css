@@ -18,10 +18,10 @@
 }
 
 .login:hover{
-  background:#2ceae5;
+  background:#b56576;
   transform:translateY(-7px);
   color:#fff;
-  box-shadow:0px 10px 25px rgba(46,223,229,0.445);
+  box-shadow:0px 10px 25px rgba(243, 92, 143, 0.445);
 }
 
 .signup{
@@ -38,10 +38,10 @@
 }
 
 .signup:hover{
-  background:#a42cea;
+  background:#b56576;
   transform:translateY(-7px);
   color:#fff;
-  box-shadow:0px 10px 25px rgba(46,223,229,0.445);
+  box-shadow:0px 10px 25px rgba(255, 138, 173, 0.445);
 }
 
 
@@ -55,6 +55,7 @@ body {
 }
 
 .carousel {
+  margin-top: 1em;
   width: 50vw;
   height: 50vh;
   position: relative;
@@ -88,7 +89,7 @@ body {
   font-size: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.616);
   border-radius: 0.25rem;
   padding: 0 0.5rem;
   cursor: pointer;
@@ -148,3 +149,5 @@ body {
 .background-carousel {
   background-color: rgb(16, 18, 17);
 }
+
+
