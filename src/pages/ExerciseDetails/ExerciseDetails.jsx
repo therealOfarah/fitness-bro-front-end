@@ -37,7 +37,7 @@ const ExerciseDetails = (props) => {
     <>
       <h1>Workout Details</h1>
       <div class="card">
-        <div class="card-body">
+        <div class="workout-body">
           <h3 class="card-title">Name: {exerciseDetail?.name}</h3>
           <h4>Type: {exerciseDetail?.type}</h4>
           <h5>Muscle: {exerciseDetail?.muscle}</h5>
@@ -60,8 +60,8 @@ const ExerciseDetails = (props) => {
         </div> */}
         {/* <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4"> */}
           <form id="algin-form" onSubmit={handleSubmit}>
-            <div class="form-group">
-              <h4>Leave a comment</h4>
+            <div className="form-group">
+              <h4 className="leavecom">Leave a comment</h4>
               <label for="message">Message</label>
               <textarea type="text" onChange={handleChange} name="comment" value={form.reviews} id=""msg cols="30" rows="5" className="container" ></textarea>
             </div>

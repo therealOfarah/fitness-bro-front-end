@@ -1,13 +1,65 @@
-.workout-page {
+body {
+  text-decoration: none;
   text-align: center;
-  
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(16, 18, 17);
 }
-
-.card-container {
+.workoutcard {
   display: flex;
-  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 50px 20px;
+  margin: 1em auto;
+  border-radius: 5px;
+  background: #fff;
+  width: 500px;
+  box-shadow: 0 14px 28px rgba(32, 32, 32, 0.25), 0 10px 10px rgba(255, 242, 253, 0.22);
 }
 
-h2{
+
+h2 {
+  font-family: Stencil Std, fantasy;
+  font-size: 3em;
   color: #b56576;
+}
+
+.workoutcontainer {
+  text-align: center;
+  margin-left: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+}
+
+
+.greeting {
+  animation: slideIn 2s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.workoutcard:hover {
+  transform: rotate(-1deg);
+}
+
+
+.workoutcard-body {
+  justify-content: space-evenly;
+  background: #fff;
+  box-shadow: 0 14px 28px rgba(255, 152, 216, 0.25), 0 10px 10px rgba(255, 88, 213, 0.22);
+}
+
+.workoutcard-body:hover{
+  transform: rotate(-2deg);
 }
