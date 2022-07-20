@@ -2,7 +2,7 @@ import * as tokenService from '../services/tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/comments`
 
-async function create(form, profileId) {
+export async function create(form, profileId) {
   const res = await fetch(`${BASE_URL}/${profileId}`, {
     method: 'POST',
     headers: {
@@ -13,4 +13,11 @@ async function create(form, profileId) {
   return res.json()
 }
 
-export { create }
+export async function deleteComment(id) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }})
+  return res.json()
+} 
