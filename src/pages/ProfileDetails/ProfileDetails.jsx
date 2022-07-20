@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 import * as commentService from '../../services/commentService'
 
@@ -10,8 +11,7 @@ const ProfileDetails = (props) => {
   const [workouts, setWorkouts] = useState([])
   const [meals, setMeal] = useState([])
   const [form, setForm] = useState({})
-  // const [comment, setComment] = useState([])
-  
+  const [comment, setComment] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
@@ -37,6 +37,7 @@ const ProfileDetails = (props) => {
     setProfile({...updatedProfile})
   }
   
+  
   const handleDeleteWorkout = async (id) => {
     await profileService.deleteWorkout(id)
     setWorkouts(workouts.filter((workout) => workout._id !== id))
@@ -47,13 +48,10 @@ const ProfileDetails = (props) => {
     setMeal(meals.filter((meal) => meal._id !== id))
   }
   
-  
   const handleDeleteComment = async (id) => {
     const updatedProfile = await commentService.deletedComment(id,profile._id)
     console.log(updatedProfile)
     setProfile({...updatedProfile})
-      // setComment(comment.filter((comment) => comment._id !== updatedProfile))
-      // console.log(form, 'this')
     }
 
   return ( 
@@ -116,6 +114,9 @@ const ProfileDetails = (props) => {
                     <div class='reviews'>
                       <h4>{comment.author?.name}</h4>
                       <p class='comment'>{comment?.comment}</p>
+                      <Link to={`/profiles/${comment?._id}/edit`} state={{comment}} form={form} profile={profile}>
+                        <button type="button" className="btn btn-danger">Edit</button>
+                      </Link>
                       <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
                     </div>
                     )}
