@@ -72,7 +72,6 @@ const ProfileDetails = (props) => {
               </div>
             </>
             )} 
-
             {meals?.map(meal =>
             <>
               <div className="card">
@@ -91,22 +90,28 @@ const ProfileDetails = (props) => {
             </>
             )} 
               {props.user.profile === profile._id ?
-            <>
-            <p></p>
-            </>
+            
+            <div class="form-group">
+                  {profile.comments?.map(comment => 
+                  <div class='reviews'>
+                    <h4>{comment.author?.name}</h4>
+                    <p class='comment'>{comment?.comment}</p>
+                  </div>
+                  )}
+            </div>
             :
             <section>
                 <div className="c-container">
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
-                  {profile.comments?.map(comment => 
-                  <div class='reviews'>
-                    <h4>{comment.author?.name}</h4>
-                    <p class='comment'>{comment?.comment}</p>
-                    <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
-                  </div>
-                  )}
+                    {profile.comments?.map(comment => 
+                    <div class='reviews'>
+                      <h4>{comment.author?.name}</h4>
+                      <p class='comment'>{comment?.comment}</p>
+                      <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
+                    </div>
+                    )}
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
@@ -120,6 +125,7 @@ const ProfileDetails = (props) => {
             }
         </div>
       </div>
+
     </>
   );
 }

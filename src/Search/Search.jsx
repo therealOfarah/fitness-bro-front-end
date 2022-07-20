@@ -29,7 +29,7 @@ const Search = (props) => {
                   class="form-control"
                   placeholder="Pick a Body Part to Work"
                 />
-                <button className="btn"type="submit">Search</button>
+                <button className="btn btn-light"type="submit">Search</button>
               </form>
               <div class="container"></div>
           </div>

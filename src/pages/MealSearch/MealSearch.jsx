@@ -28,9 +28,8 @@ const MealSearch = (props) => {
               className="form-control"
               placeholder="Search Food, Drinks etc..."
               />
-              <button className="btn" type="submit">Search</button>
+              <button className="btn btn-light" type="submit">Search</button>
             </form>
-            <div class="container"></div>
           </div>
         </div>
       </div>
