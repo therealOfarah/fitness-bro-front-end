@@ -21,3 +21,13 @@ export async function deleteComment(id) {
     }})
   return res.json()
 } 
+
+export async function show(commentId) {
+  const res = await fetch(`${BASE_URL}/${commentId}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'}, 
+    })
+  return res.json()
+}
