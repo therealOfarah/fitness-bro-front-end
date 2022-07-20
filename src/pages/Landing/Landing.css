@@ -118,9 +118,9 @@ body {
   z-index: 1;
 }
 
-.fade-appear.fade-appear-active {
+.fade-appear-active {
   opacity: 1;
-  transition: opacity 6000ms linear;
+  transition: opacity 5000ms linear;
 }
 
 .fade-enter {
@@ -130,11 +130,12 @@ body {
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 5000ms linear 5000ms;
+  transition: opacity 5000ms linear;
 }
 
 .fade-exit{
   opacity: 1;
+  transition: opacity 5000ms linear;
 }
 
 .fade-exit-active {
@@ -150,4 +151,8 @@ body {
   background-color: rgb(16, 18, 17);
 }
 
-
+.carouselText {
+  position: relative;
+  color: white;
+  text-align: center;
+}
