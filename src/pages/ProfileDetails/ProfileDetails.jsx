@@ -27,11 +27,9 @@ const ProfileDetails = (props) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
 
-  console.log(profile)
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const updatedProfile = await commentService.create(form, profile._id)
-    console.log(updatedProfile)
     setProfile(updatedProfile)
   }
   
@@ -40,10 +38,16 @@ const ProfileDetails = (props) => {
     setWorkouts(workouts.filter((workout) => workout._id !== id))
     }
 
-    const handleDeleteMeal = async (id) => {
-      await profileService.deletedMeal(id)
-      setMeal(meals.filter((meal) => meal._id !== id))
-    }
+  const handleDeleteMeal = async (id) => {
+    await profileService.deletedMeal(id)
+    setMeal(meals.filter((meal) => meal._id !== id))
+  }
+
+  const handleDeleteComment = async (id) => {
+    const updatedProfile = await commentService.deleteComment(id)
+    setProfile(updatedProfile)
+  }
+
 
   return ( 
     <>
@@ -96,14 +100,13 @@ const ProfileDetails = (props) => {
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
-                  {profile.comments?.map(review => 
-              <div class='reviews'>
-                    {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
-                    <h4>{review.author?.name}</h4>
-                    {/* <span>- 20 October, 2018</span> */}
-                    <p class='comment'>{review?.comment}</p>
-              </div>
-            )}
+                  {profile.comments?.map(comment => 
+                  <div class='reviews'>
+                    <h4>{comment.author?.name}</h4>
+                    <p class='comment'>{comment?.comment}</p>
+                    <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
+                  </div>
+                  )}
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
