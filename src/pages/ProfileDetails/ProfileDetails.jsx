@@ -68,19 +68,7 @@ const ProfileDetails = (props) => {
               </div>
             </>
             )} 
-            {profile.comments?.map(review => 
-              <>
-                <h1>k</h1>
-                <h1>o</h1>
-                <div class="comment mt-4 text-justify float-left">
-                    {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
-                    <h4>{review.author?.name}</h4>
-                    {/* <span>- 20 October, 2018</span> */}
-                    <br/>
-                    <p>{review?.comment}</p>
-                  </div>
-              </>
-            )}
+
             {meals?.map(meal =>
             <>
               <div className="card">
@@ -106,10 +94,17 @@ const ProfileDetails = (props) => {
             <section>
                 <div className="c-container">
                 <h1>Comments</h1>
-                  <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
-                    <h4>Leave a comment</h4>
+                  {profile.comments?.map(review => 
+              <div class='reviews'>
+                    {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
+                    <h4>{review.author?.name}</h4>
+                    {/* <span>- 20 October, 2018</span> */}
+                    <p class='comment'>{review?.comment}</p>
+              </div>
+            )}
+                    <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
                   </div>
@@ -117,7 +112,6 @@ const ProfileDetails = (props) => {
                     <button type="submit" id="post" className="c-btn">Post Comment</button>
                   </div>
                 </form>
-                </div>
               </div>
             </section>
             }

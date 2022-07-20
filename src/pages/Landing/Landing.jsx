@@ -1,6 +1,6 @@
 import styles from './Landing.css'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {carouselImages} from './CarouselImages.js'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,13 +30,9 @@ const Landing = ({ user }) => {
     }
   }
 
-  useEffect(() => {
-    
-  }, [carouselCounter])
 
   return (
     <main className={styles.container}>
-      <h1>Search a Meal or Workout</h1>
       {user 
       ? '' 
       : 
@@ -52,8 +48,8 @@ const Landing = ({ user }) => {
       <br />
       <TransitionGroup>
         <CSSTransition
-        key={carouselImages[carouselCounter]}
-        timeout={6000}
+        in={carouselCounter}
+        timeout={10000}
         classNames='fade'
         appear={true}
         >
@@ -67,6 +63,7 @@ const Landing = ({ user }) => {
                 src={carouselImage.url}
                 alt={carouselImage.alt}
                 />
+                <p class='carouselText'>{carouselImage.text}</p>
               </li>
             </ul>
           </div>
