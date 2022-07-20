@@ -10,19 +10,21 @@ const ProfileDetails = (props) => {
   const [workouts, setWorkouts] = useState([])
   const [meals, setMeal] = useState([])
   const [form, setForm] = useState({})
+  const [comment, setComment] = useState([])
   
   const { id } = useParams()
 
   useEffect(() => {
-    const fetchProfile = async () => {
+    const fetchProfile = async (evt) => {
       const profileData = await profileService.getProfileDetails(id)
       setProfile(profileData)
       setWorkouts(profileData.workouts)
       setMeal(profileData.meals)
+      setComment(profileData.comments)
     }
     fetchProfile()
   }, [id])
-
+  
   const handleChange = (evt) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
@@ -48,6 +50,12 @@ const ProfileDetails = (props) => {
     setProfile(updatedProfile)
   }
 
+
+    const handleDeleteComment = async (id) => {
+      // await profileService.deletedComment(id)
+      setComment(comment.filter((comment) => comment._id !== id))
+      console.log(form, 'this')
+    }
 
   return ( 
     <>
@@ -99,14 +107,18 @@ const ProfileDetails = (props) => {
                 <div className="c-container">
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
-                  <div class="form-group">
-                  {profile.comments?.map(comment => 
-                  <div class='reviews'>
+
+                  {comment?.map(comment => 
+              <div class='reviews'>
+                    {/* <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="40" height="40"/> */}
                     <h4>{comment.author?.name}</h4>
+                    {/* <span>- 20 October, 2018</span> */}
                     <p class='comment'>{comment?.comment}</p>
                     <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
-                  </div>
-                  )}
+                    
+              </div>
+            )}
+
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
                     <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
