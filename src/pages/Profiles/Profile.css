@@ -100,3 +100,31 @@ h1 {
   box-shadow:0px 10px 25px rgba(223, 61, 102, 0.445);
   
 }
+
+.reviews:nth-child(odd) {
+  background-color: white;
+}
+
+.reviews:nth-child(even) {
+  background-color: rgb(245, 242, 244);
+}
+
+.reviews {
+  border: 1px solid black;
+  /* box-shadow: 5px 10px; */
+  border-bottom: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  height: 250px;
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
+  border-bottom: none;
+}
+
+.comment {
+  margin: 0;
+}
+
+div h4 {
+  margin: 0;
+}
