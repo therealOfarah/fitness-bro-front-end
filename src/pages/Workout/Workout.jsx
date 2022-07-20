@@ -15,20 +15,22 @@ const Workout = props => {
 
 
   return (
-    <main className='workout-page'>
+    <body className='workout-page'>
       <h2>Workouts</h2>
-      <div className='.card-container'>
         <Search handleWorkoutSearch={handleWorkoutSearch}/>
-        {workouts.map(workout => 
-          <Exercise 
-            key={workout.name}
-            name={workout.name}
-            muscle={workout.muscle}
-            workout={workout}
-          />
-        )}
-      </div>
-    </main>
+          <div className='.workoutcontainer'>
+            {workouts.map(workout => 
+              <div className='workoutcard'>
+                <Exercise 
+                  key={workout.name}
+                  name={workout.name}
+                  muscle={workout.muscle}
+                  workout={workout}
+                />
+              </div>
+            )}
+          </div>
+    </body>
   )
 }
 export default Workout
