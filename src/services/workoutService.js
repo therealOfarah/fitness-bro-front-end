@@ -9,6 +9,7 @@ export async function getDetails(apiUrl) {
 }
 
 export async function workoutSearch(formData){
+  
   const res = await fetch(`${BASE_URL}?search=${formData.query}`)
   const data =  await res.json()
   return data
