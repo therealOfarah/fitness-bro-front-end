@@ -5,7 +5,6 @@ import Profile from '../../components/Profile/Profile'
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
-
   
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -14,8 +13,6 @@ const Profiles = () => {
     }
     fetchProfiles()
   }, [])
-
-  console.log(profiles)
 
   return (
     <>

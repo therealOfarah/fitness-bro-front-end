@@ -3,7 +3,7 @@ import MealSearch from "../MealSearch/MealSearch"
 import { mealSearch, addMealDetail } from '../../services/mealService'
 import '../../styles/meals.css'
 
-const Meals = props => {
+  const Meals = props => {
   const[meals,setMeals]= useState([])
 
   const handleMealSearch = async FormData => {

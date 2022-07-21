@@ -26,7 +26,7 @@ const MealSearch = (props) => {
                   value={formData.query}
                   onChange={handleChange}
                   className="form-control"
-                  placeholder="Search Food, Drinks etc..."
+                  placeholder="Search for Food"
                 />
                 <button className="btn btn-light" type="submit">Search</button>
               </form>
