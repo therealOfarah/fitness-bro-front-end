@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 import * as commentService from '../../services/commentService'
 
-const ProfileDetails = (props) => {
+  const ProfileDetails = (props) => {
 
   const [profile, setProfile] = useState({})
   const [workouts, setWorkouts] = useState([])
@@ -63,11 +63,11 @@ const ProfileDetails = (props) => {
                   <h5 className="card-title">{workout.name}</h5>
                   <p className="card-text">Muscle: {workout.muscle}</p>
                   {props.user.profile === profile._id ? 
-              <>
-                <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn-remove">Remove</button>
-              </>
-              : ''
-            }
+                    <>
+                      <button onClick={() => handleDeleteWorkout(workout._id)} type="button" className="btn-remove">Remove</button>
+                    </>
+                    : ''
+                  }
                 </div>
               </div>
             </>
@@ -80,57 +80,56 @@ const ProfileDetails = (props) => {
                   <p className="card-text">Calories: {meal.calories}</p>
                   <p className="card-text">Protein: {meal.protein_g}g</p>
                   {props.user.profile === profile._id ? 
-              <>
-                <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn-remove">Remove</button>
-              </>
-              : <p></p>
-            }
+                    <>
+                      <button onClick={() => handleDeleteMeal(meal._id)} type="button" className="btn-remove">Remove</button>
+                    </>
+                    : <p></p>
+                  }
                 </div>
               </div>
             </>
             )} 
-              {props.user.profile === profile._id ?
-            
-            <div class="form-group">
-              {comments.map(comment => 
-              <div class='reviews' key={comment._id}>
-                <h4>{comment.author.name}</h4>
-                <p class='comment'>{comment.comment}</p>
+            {props.user.profile === profile._id ?
+              <div class="form-group">
+                {comments.map(comment => 
+                  <div class='reviews' key={comment._id}>
+                    <h4>{comment.author.name}</h4>
+                    <p class='comment'>{comment.comment}</p>
+                  </div>
+                )}
               </div>
-              )}
-            </div>
-            :
-            <section>
-              <div className="c-container">
-                <h1>Comments</h1>
-                <form id="algin-form" onSubmit={handleSubmit}>
-                  <div class="form-group">
-                    {profile.comments?.map(comment => 
-                    <div class='reviews' key={comment._id}>
-                      <h4>{comment.author.name}</h4>
-                      <p class='comment'>{comment.comment}</p>
-                      {props.user.profile === comment.author._id ?
-                      <> 
-                      <Link to={`/profiles/${comment._id}/edit`} state={{profile}}>
-                        <button type="submit" className="btn btn-danger">Edit</button>
-                      </Link>
-                      <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
-                      </>
-                      :
-                      ''
-                    }
+              :
+              <section>
+                <div className="c-container">
+                  <h1>Comments</h1>
+                  <form id="algin-form" onSubmit={handleSubmit}>
+                    <div class="form-group">
+                      {profile.comments?.map(comment => 
+                        <div class='reviews' key={comment._id}>
+                          <h4>{comment.author.name}</h4>
+                          <p class='comment'>{comment.comment}</p>
+                          {props.user.profile === comment.author._id ?
+                            <> 
+                              <Link to={`/profiles/${comment._id}/edit`} state={{profile}}>
+                                <button type="submit" className="btn btn-danger">Edit</button>
+                              </Link>
+                              <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
+                            </>
+                            :
+                            ''
+                          }
+                        </div>
+                      )}
+                      <h4>Leave a comment</h4>  
+                      <label for="message">Message</label>
+                      <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
                     </div>
-                    )}
-                    <h4>Leave a comment</h4>  
-                    <label for="message">Message</label>
-                    <textarea type="text" onChange={handleChange} name="comment" value={form.comment} id=""msg cols="30" rows="5" className="container" ></textarea>
-                  </div>
-                  <div className="procomments">
-                    <button type="submit" id="post" className="c-btn">Post Comment</button>
-                  </div>
-                </form>
-              </div>
-            </section>
+                    <div className="procomments">
+                      <button type="submit" id="post" className="c-btn">Post Comment</button>
+                    </div>
+                  </form>
+                </div>
+              </section>
             }
         </div>
       </div>

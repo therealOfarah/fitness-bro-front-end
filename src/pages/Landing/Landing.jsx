@@ -8,7 +8,7 @@ import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 
 
-const Landing = ({ user }) => {
+  const Landing = ({ user }) => {
 
   const [carouselCounter, setCarouselCounter] = useState(0)
 
@@ -34,23 +34,23 @@ const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
       {user 
-      ? '' 
-      : 
-      <>
-        <Link to="/login">
-          <button className='login'>Login</button>
-        </Link>
-        <Link to="/signup">
-          <button className='signup'>SignUp</button>
-        </Link>
-      </>
+        ? '' 
+        : 
+        <>
+          <Link to="/login">
+            <button className='login'>Login</button>
+          </Link>
+          <Link to="/signup">
+            <button className='signup'>SignUp</button>
+          </Link>
+        </>
       }
       <TransitionGroup>
         <CSSTransition
-        in={carouselCounter}
-        timeout={10000}
-        classNames='fade'
-        appear={true}
+          in={carouselCounter}
+          timeout={10000}
+          classNames='fade'
+          appear={true}
         >
         <div className='background-carousel'>
           <div className='carousel'>
@@ -59,8 +59,8 @@ const Landing = ({ user }) => {
             <ul>
               <li className='slide'>
                 <img
-                src={carouselImage.url}
-                alt={carouselImage.alt}
+                  src={carouselImage.url}
+                  alt={carouselImage.alt}
                 />
                 <p class='carouselText'>{carouselImage.text}</p>
               </li>

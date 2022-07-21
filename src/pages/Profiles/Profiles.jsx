@@ -3,7 +3,7 @@ import * as profileService from '../../services/profileService'
 import './Profile.css'
 import Profile from '../../components/Profile/Profile'
 
-const Profiles = (props) => {
+  const Profiles = (props) => {
   const [profiles, setProfiles] = useState([])
 
   
@@ -31,9 +31,9 @@ const Profiles = (props) => {
                   email={profile.email}
                   workout={profile.workouts}
                   profile={profile}
-                  />
+                />
             </div>
-            )}
+          )}
         </ul>
         </>
       :
