@@ -58,10 +58,12 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
             <button className='carousel-button next' onClick={slideRight}><FontAwesomeIcon icon={faArrowRightLong} /></button>
             <ul>
               <li className='slide'>
+                <Link to={carouselImage.tag}>
                 <img
                   src={carouselImage.url}
                   alt={carouselImage.alt}
-                />
+                  />
+                </Link>
                 <p className='carouselText'>{carouselImage.text}</p>
               </li>
             </ul>
