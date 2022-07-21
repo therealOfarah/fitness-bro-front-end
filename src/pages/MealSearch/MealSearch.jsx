@@ -13,27 +13,27 @@ const MealSearch = (props) => {
   }
   return (
     <>
-    <div className="row height d-flex justify-content-center align-items-center">
-      <div className="col-md-8">
-        <div className="search">
-          <div>
-          <i className="fa fa-search"></i>
-            <form onSubmit={handleSubmit}>
-              <input 
-                name="query" 
-                type="text"  
-                autoComplete="off"
-                value={formData.query}
-                onChange={handleChange}
-                className="form-control"
-                placeholder="Search Food, Drinks etc..."
-              />
-              <button className="btn btn-light" type="submit">Search</button>
-            </form>
+      <div className="row height d-flex justify-content-center align-items-center">
+        <div className="col-md-8">
+          <div className="search">
+            <div>
+            <i className="fa fa-search"></i>
+              <form onSubmit={handleSubmit}>
+                <input 
+                  name="query" 
+                  type="text"  
+                  autoComplete="off"
+                  value={formData.query}
+                  onChange={handleChange}
+                  className="form-control"
+                  placeholder="Search Food, Drinks etc..."
+                />
+                <button className="btn btn-light" type="submit">Search</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div> 
+      </div> 
     </>
   );
 }
