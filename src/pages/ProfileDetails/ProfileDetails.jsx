@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 import * as commentService from '../../services/commentService'
 
@@ -10,8 +11,7 @@ const ProfileDetails = (props) => {
   const [workouts, setWorkouts] = useState([])
   const [meals, setMeal] = useState([])
   const [form, setForm] = useState({})
-  // const [comment, setComment] = useState([])
-  
+  const [comment, setComment] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
@@ -20,13 +20,11 @@ const ProfileDetails = (props) => {
       setProfile(profileData)
       setWorkouts(profileData.workouts)
       setMeal(profileData.meals)
-      // setComment(profileData.comments)
+      setComment(profileData.comments)
     }
     fetchProfile()
   }, [id])
-  useEffect(()=>{
-    console.log(profile)
-  },[profile])
+  
   const handleChange = (evt) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
@@ -34,8 +32,9 @@ const ProfileDetails = (props) => {
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const updatedProfile = await commentService.create(form, profile._id)
-    setProfile({...updatedProfile})
+    setProfile(updatedProfile)
   }
+  
   
   const handleDeleteWorkout = async (id) => {
     await profileService.deleteWorkout(id)
@@ -46,14 +45,11 @@ const ProfileDetails = (props) => {
     await profileService.deletedMeal(id)
     setMeal(meals.filter((meal) => meal._id !== id))
   }
-  
-  
-  const handleDeleteComment = async (id) => {
-    const updatedProfile = await commentService.deletedComment(id,profile._id)
-    console.log(updatedProfile)
-    setProfile({...updatedProfile})
-      // setComment(comment.filter((comment) => comment._id !== updatedProfile))
-      // console.log(form, 'this')
+
+    const handleDeleteComment = async (id) => {
+      // await profileService.deletedComment(id)
+      setComment(comment.filter((comment) => comment._id !== id))
+      console.log(form, 'this')
     }
 
   return ( 
@@ -116,6 +112,9 @@ const ProfileDetails = (props) => {
                     <div class='reviews'>
                       <h4>{comment.author?.name}</h4>
                       <p class='comment'>{comment?.comment}</p>
+                      <Link to={`/profiles/${comment?._id}/edit`}>
+                        <button type="button" className="btn btn-danger">Edit</button>
+                      </Link>
                       <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
                     </div>
                     )}

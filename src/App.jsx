@@ -13,6 +13,7 @@ import Search from './Search/Search'
 import Workout from './pages/Workout/Workout'
 import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
+import EditComment from './pages/EditComment/EditComment';
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -53,6 +54,12 @@ const App = () => {
         <Route
           path="/profiles/:id"
           element={<ProfileDetails
+          user={user}
+          />}
+        />
+        <Route
+          path="/profiles/:id/edit"
+          element={<EditComment
           user={user}
           />}
         />
