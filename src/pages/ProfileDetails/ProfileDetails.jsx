@@ -58,7 +58,7 @@ import * as commentService from '../../services/commentService'
           <h3>{profile?.email}</h3>
             {workouts?.map(workout =>
             <>
-              <div className="card">
+              <div className="card" key={workout.name}>
                 <div className="box-body">
                   <h5 className="card-title">{workout.name}</h5>
                   <p className="card-text">Muscle: {workout.muscle}</p>
@@ -74,7 +74,7 @@ import * as commentService from '../../services/commentService'
             )} 
             {meals?.map(meal =>
             <>
-              <div className="card">
+              <div className="card" key={meal.name}>
                 <div className="box-body">
                   <h5 className="card-title">{meal.name}</h5>
                   <p className="card-text">Calories: {meal.calories}</p>

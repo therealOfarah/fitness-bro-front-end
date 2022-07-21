@@ -22,7 +22,7 @@ import '../../styles/meals.css'
       {meals.map(meal =>
       <>
         <div className="card" style={{width: "18rem"}}>
-          <div className="card-body">
+          <div className="card-body" key={meal.name}>
             <h1 className="card-title">{meal?.name}</h1>
             <h3>Calories:{meal?.calories}g</h3>
             <h3>Carbohydrates:{meal?.carbohydrates_total_g}g</h3>
