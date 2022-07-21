@@ -26,7 +26,7 @@ const ExerciseDetails = (props) => {
     setForm({...form, [evt.target.name]:evt.target.value})
   }
 
-  // console.log(props.user.profile)
+  console.log(props.user.profile)
   const handleSubmit = async (evt) => {
     evt.preventDefault()
     const updatedExerciseDetail = await create(form, props.user.profile)
@@ -71,7 +71,7 @@ const ExerciseDetails = (props) => {
           </form>
         </div>
       </section>
-
+        {exerciseDetail.reviews?.manp}
       {/* if user adds workout, remove button 
       else, add button */} 
       {/* {props.user.profile._id === exerciseName ?
