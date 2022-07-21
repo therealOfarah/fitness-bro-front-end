@@ -15,6 +15,8 @@ import ExerciseDetails from './pages/ExerciseDetails/ExerciseDetails'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails';
 import EditComment from './pages/EditComment/EditComment';
 
+
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()

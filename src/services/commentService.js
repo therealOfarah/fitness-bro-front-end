@@ -13,7 +13,7 @@ export async function create(form, profileId) {
   return res.json()
 }
 
-export async function deletedComment(id,profileId) {
+export async function deleteComment(id,profileId) {
   const res = await fetch(`${BASE_URL}/deleted/${profileId}/${id}`, {
     method: 'DELETE',
     headers: {
