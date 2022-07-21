@@ -116,7 +116,6 @@ h1 {
 
 .reviews {
   border: 1px solid black;
-  /* box-shadow: 5px 10px; */
   border-bottom: rgba(0, 0, 0, 0.5);
   margin: 0;
   height: 250px;
@@ -132,4 +131,12 @@ h1 {
 
 div h4 {
   margin: 0;
+}
+
+div.reviews button {
+  margin-bottom: auto;
+}
+
+p.comment {
+  margin-bottom: 0;
 }
