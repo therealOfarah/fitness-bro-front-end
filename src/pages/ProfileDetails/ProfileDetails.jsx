@@ -4,14 +4,13 @@ import { Link } from "react-router-dom"
 import * as profileService from '../../services/profileService'
 import * as commentService from '../../services/commentService'
 
-
 const ProfileDetails = (props) => {
 
   const [profile, setProfile] = useState({})
   const [workouts, setWorkouts] = useState([])
   const [meals, setMeal] = useState([])
   const [form, setForm] = useState({})
-  const [comment, setComment] = useState([])
+  const [comments, setComments] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
@@ -20,7 +19,7 @@ const ProfileDetails = (props) => {
       setProfile(profileData)
       setWorkouts(profileData.workouts)
       setMeal(profileData.meals)
-      setComment(profileData.comments)
+      setComments(profileData.comments)
     }
     fetchProfile()
   }, [id])
@@ -34,7 +33,6 @@ const ProfileDetails = (props) => {
     const updatedProfile = await commentService.create(form, profile._id)
     setProfile(updatedProfile)
   }
-  
   
   const handleDeleteWorkout = async (id) => {
     await profileService.deleteWorkout(id)
@@ -50,11 +48,6 @@ const ProfileDetails = (props) => {
     const updatedProfile = await commentService.deleteComment(id, profile._id)
     setProfile(updatedProfile)
   }
-
-    // const handleUpdate = async (updatedComment) => {
-    //   const newComment = await commentService.update(updatedComment)
-    //   setComment(newComment)
-    // }
 
   return ( 
     <>
@@ -99,27 +92,33 @@ const ProfileDetails = (props) => {
               {props.user.profile === profile._id ?
             
             <div class="form-group">
-                  {profile.comments?.map(comment => 
-                  <div class='reviews'>
-                    <h4>{comment.author?.name}</h4>
-                    <p class='comment'>{comment?.comment}</p>
-                  </div>
-                  )}
+              {comments.map(comment => 
+              <div class='reviews' key={comment._id}>
+                <h4>{comment.author.name}</h4>
+                <p class='comment'>{comment.comment}</p>
+              </div>
+              )}
             </div>
             :
             <section>
-                <div className="c-container">
+              <div className="c-container">
                 <h1>Comments</h1>
                 <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
                     {profile.comments?.map(comment => 
-                    <div class='reviews'>
-                      <h4>{comment.author?.name}</h4>
-                      <p class='comment'>{comment?.comment}</p>
-                      <Link to={`/profiles/${comment?._id}/edit`} state={{profile}}>
-                        <button type="button" className="btn btn-danger">Edit</button>
+                    <div class='reviews' key={comment._id}>
+                      <h4>{comment.author.name}</h4>
+                      <p class='comment'>{comment.comment}</p>
+                      {props.user.profile === comment.author._id ?
+                      <> 
+                      <Link to={`/profiles/${comment._id}/edit`} state={{profile}}>
+                        <button type="submit" className="btn btn-danger">Edit</button>
                       </Link>
                       <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>
+                      </>
+                      :
+                      ''
+                    }
                     </div>
                     )}
                     <h4>Leave a comment</h4>  
@@ -135,7 +134,6 @@ const ProfileDetails = (props) => {
             }
         </div>
       </div>
-
     </>
   );
 }
