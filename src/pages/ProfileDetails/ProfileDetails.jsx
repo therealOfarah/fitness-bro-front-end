@@ -46,11 +46,15 @@ const ProfileDetails = (props) => {
     setMeal(meals.filter((meal) => meal._id !== id))
   }
 
-    const handleDeleteComment = async (id) => {
-      // await profileService.deletedComment(id)
-      setComment(comment.filter((comment) => comment._id !== id))
-      console.log(form, 'this')
-    }
+  const handleDeleteComment = async (id) => {
+    const updatedProfile = await commentService.deleteComment(id, profile._id)
+    setProfile(updatedProfile)
+  }
+
+    // const handleUpdate = async (updatedComment) => {
+    //   const newComment = await commentService.update(updatedComment)
+    //   setComment(newComment)
+    // }
 
   return ( 
     <>
@@ -112,7 +116,7 @@ const ProfileDetails = (props) => {
                     <div class='reviews'>
                       <h4>{comment.author?.name}</h4>
                       <p class='comment'>{comment?.comment}</p>
-                      <Link to={`/profiles/${comment?._id}/edit`}>
+                      <Link to={`/profiles/${comment?._id}/edit`} state={{profile}}>
                         <button type="button" className="btn btn-danger">Edit</button>
                       </Link>
                       <button onClick={() => handleDeleteComment(comment._id)} type="button" className="btn btn-danger">Remove</button>

@@ -5,8 +5,19 @@ import { Link, useLocation, useParams } from 'react-router-dom'
 
 const EditComment = (props) => {
   const { id } = useParams()
+  const location = useLocation()
 
   const [comment, setComment] = useState('')
+  // const [formData, setFormData] = useState(location.state.comment)
+
+  function handleSubmit(evt) {
+    evt.preventDefault()
+    props.handleUpdate(comment)
+  }
+
+  // const handleChange = evt => {
+	// 	setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  // }
 
   useEffect(() => {
     const fetchComment = async (commentId) => {
@@ -16,7 +27,7 @@ const EditComment = (props) => {
     fetchComment(id)
   }, [id])
 
-  console.log(comment)
+  console.log(location.state.profile._id)
 
   return ( 
     <>
@@ -24,15 +35,15 @@ const EditComment = (props) => {
     <section>
                 <div className="c-container">
                 <h1>Comments</h1>
-                <form id="algin-form">
+                <form id="algin-form" onSubmit={handleSubmit}>
                   <div class="form-group">
                     
                     <h4>Leave a comment</h4>  
                     <label for="message">Message</label>
-                    <textarea type="text" name="comment" value={comment} id=""msg cols="30" rows="5" className="container" ></textarea>
+                    <textarea type="text" name="comment" value={comment} id=""msg cols="30" rows="5" className="container" onChange={(e) => setComment(e.target.value)}></textarea>
                   </div>
                   <div className="procomments">
-                    <Link to="/profiles">
+                    <Link to={`/profiles/${location.state.profile._id}`}>
                       <button type="submit" id="post" className="c-btn">Edit Comment</button>
                     </Link>
                   </div>
