@@ -1,7 +1,6 @@
 import * as tokenService from '../services/tokenService'
 
-const BASE_URL = `https://fitness-bro.herokuapp.com/api/workouts`
-
+const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/workouts`
 
 export async function getDetails(apiUrl) {
   const res = await fetch(`${BASE_URL}${apiUrl}`)
