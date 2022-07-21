@@ -26,7 +26,7 @@ const Search = (props) => {
                   autoComplete="off"
                   value={formData.query}
                   onChange={handleChange}
-                  class="form-control"
+                  className="form-control"
                   placeholder="Pick a Body Part to Work"
                 />
                 <button className="btn btn-light"type="submit">Search</button>

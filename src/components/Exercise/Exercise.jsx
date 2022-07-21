@@ -1,4 +1,3 @@
-import ExerciseDetails from '../../pages/ExerciseDetails/ExerciseDetails';
 import { Link } from 'react-router-dom'
 import '../../styles/exercise.css'
 

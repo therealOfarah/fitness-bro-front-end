@@ -3,9 +3,8 @@ import * as profileService from '../../services/profileService'
 import './Profile.css'
 import Profile from '../../components/Profile/Profile'
 
-  const Profiles = (props) => {
+const Profiles = () => {
   const [profiles, setProfiles] = useState([])
-
   
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -15,16 +14,14 @@ import Profile from '../../components/Profile/Profile'
     fetchProfiles()
   }, [])
 
-  console.log(profiles)
-
   return (
     <>
       <h1>Hello. This is a list of all the profiles.</h1>
       {profiles.length ? 
         <>
-        <ul className='container'>
-          {profiles.map(profile =>
-            <div className='box'>
+          <ul className='container'>
+            {profiles.map(profile =>
+              <div className='box'>
                 <Profile
                   key={profile._id}
                   name={profile.name}
@@ -32,15 +29,14 @@ import Profile from '../../components/Profile/Profile'
                   workout={profile.workouts}
                   profile={profile}
                 />
-            </div>
-          )}
-        </ul>
+              </div>
+            )}
+          </ul>
         </>
       :
         <p>No profiles yet</p>
       }
     </>
-    
   )
 }
 

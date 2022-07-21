@@ -17,7 +17,7 @@ const MealSearch = (props) => {
         <div className="col-md-8">
           <div className="search">
             <div>
-              <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
               <form onSubmit={handleSubmit}>
                 <input 
                   name="query" 

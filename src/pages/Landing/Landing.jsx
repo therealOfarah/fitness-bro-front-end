@@ -62,7 +62,7 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
                   src={carouselImage.url}
                   alt={carouselImage.alt}
                 />
-                <p class='carouselText'>{carouselImage.text}</p>
+                <p className='carouselText'>{carouselImage.text}</p>
               </li>
             </ul>
           </div>

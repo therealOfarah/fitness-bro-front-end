@@ -15,7 +15,7 @@ const NavBar = ({ user, handleLogout }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-            <Link to="/" className="nav-link active" aria-current="page">Home</Link>
+              <Link to="/" className="nav-link active" aria-current="page">Home</Link>
               <Link to="/workouts" className="nav-link">Workouts</Link>
               <Link to="/meals" className="nav-link">Meals</Link>
               <Link to="/profiles" className="nav-link">Community</Link>
