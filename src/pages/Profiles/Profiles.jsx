@@ -3,7 +3,7 @@ import * as profileService from '../../services/profileService'
 import './Profile.css'
 import Profile from '../../components/Profile/Profile'
 
-const Profiles = (props) => {
+const Profiles = () => {
   const [profiles, setProfiles] = useState([])
 
   
@@ -22,25 +22,24 @@ const Profiles = (props) => {
       <h1>Hello. This is a list of all the profiles.</h1>
       {profiles.length ? 
         <>
-        <ul className='container'>
-          {profiles.map(profile =>
-            <div className='box'>
+          <ul className='container'>
+            {profiles.map(profile =>
+              <div className='box'>
                 <Profile
                   key={profile._id}
                   name={profile.name}
                   email={profile.email}
                   workout={profile.workouts}
                   profile={profile}
-                  />
-            </div>
+                />
+              </div>
             )}
-        </ul>
+          </ul>
         </>
       :
         <p>No profiles yet</p>
       }
     </>
-    
   )
 }
 

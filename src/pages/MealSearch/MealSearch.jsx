@@ -17,16 +17,16 @@ const MealSearch = (props) => {
       <div className="col-md-8">
         <div className="search">
           <div>
-          <i class="fa fa-search"></i>
+          <i className="fa fa-search"></i>
             <form onSubmit={handleSubmit}>
               <input 
-              name="query" 
-              type="text"  
-              autoComplete="off"
-              value={formData.query}
-              onChange={handleChange}
-              className="form-control"
-              placeholder="Search Food, Drinks etc..."
+                name="query" 
+                type="text"  
+                autoComplete="off"
+                value={formData.query}
+                onChange={handleChange}
+                className="form-control"
+                placeholder="Search Food, Drinks etc..."
               />
               <button className="btn btn-light" type="submit">Search</button>
             </form>

@@ -14,11 +14,11 @@ const Search = (props) => {
   }
 
   return (
-    <div class="row height d-flex justify-content-center align-items-center">
-      <div class="col-md-8">
-        <div class="search">
+    <div className="row height d-flex justify-content-center align-items-center">
+      <div className="col-md-8">
+        <div className="search">
           <div>
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
               <form onSubmit={handleSubmit}>
                 <input 
                   name="query" 
@@ -26,12 +26,12 @@ const Search = (props) => {
                   autoComplete="off"
                   value={formData.query}
                   onChange={handleChange}
-                  class="form-control"
+                  className="form-control"
                   placeholder="Pick a Body Part to Work"
                 />
                 <button className="btn btn-light"type="submit">Search</button>
               </form>
-              <div class="container"></div>
+              <div className="container"></div>
           </div>
         </div>
       </div>

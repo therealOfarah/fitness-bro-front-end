@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom"
-import ProfileDetails from "../../pages/ProfileDetails/ProfileDetails";
 import './Profile.css'
 
 const Profile = (props) => {
-
 
   return ( 
     <>

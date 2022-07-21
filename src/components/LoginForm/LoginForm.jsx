@@ -39,36 +39,34 @@ const LoginForm = props => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
-          <h1> Log In </h1>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="email"
-          value={formData.email}
-          name="email"
-          onChange={handleChange}
-          placeholder='Email'
-        />
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={formData.pw}
-          name="pw"
-          onChange={handleChange}
-          placeholder='Password'
-        />
-        <button id='signinbtn' disabled={isFormInvalid()} className={styles.button}>Log In</button>
-        <Link to="/">
-          <button id='signinbtn'>Cancel</button>
-        </Link>
-
-        <hr />
-          <p>Don't have an account ? <Link to="/signup">Sign up</Link></p>
+      <h1> Log In </h1>
+      <label htmlFor="email" className={styles.label}>Email</label>
+      <input
+        type="text"
+        autoComplete="off"
+        id="email"
+        value={formData.email}
+        name="email"
+        onChange={handleChange}
+        placeholder='Email'
+      />
+      <label htmlFor="password" className={styles.label}>Password</label>
+      <input
+        type="password"
+        autoComplete="off"
+        id="password"
+        value={formData.pw}
+        name="pw"
+        onChange={handleChange}
+        placeholder='Password'
+      />
+      <button id='signinbtn' disabled={isFormInvalid()} className={styles.button}>Log In</button>
+      <Link to="/">
+        <button id='signinbtn'>Cancel</button>
+      </Link>
+      <hr />
+      <p>Don't have an account ? <Link to="/signup">Sign up</Link></p>
     </form>
-
   )
 }
 
