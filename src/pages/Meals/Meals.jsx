@@ -28,7 +28,7 @@ import '../../styles/meals.css'
             <h3>Carbohydrates:{meal?.carbohydrates_total_g}g</h3>
             <h3>Protein:{meal?.protein_g}g</h3>
             <h3>Fats:{meal?.fat_total_g}g</h3>
-            <h3>Recomended Serviing Size:{meal?.serving_size_g}g</h3>
+            <h3>Recomended Serving Size:{meal?.serving_size_g}g</h3>
             <button onClick={handleAdd}className="btn">Add</button>
           </div>
         </div>
