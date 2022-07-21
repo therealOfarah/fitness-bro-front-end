@@ -20,7 +20,7 @@ const Workout = props => {
         <Search handleWorkoutSearch={handleWorkoutSearch}/>
           <div className='.workoutcontainer'>
             {workouts.map(workout => 
-              <div className='workoutcard'>
+              <div className='workoutcard' key={workout.name}>
                 <Exercise 
                   key={workout.name}
                   name={workout.name}
