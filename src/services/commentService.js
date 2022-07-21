@@ -31,3 +31,14 @@ export async function show(commentId) {
     })
   return res.json()
 }
+export async function update(comment){
+  console.log(comment)
+  const res = await fetch(`${BASE_URL}/${comment._id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'}, 
+      body: JSON.stringify(comment)
+    })
+  return res.json()
+}
