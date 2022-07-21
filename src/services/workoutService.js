@@ -9,19 +9,19 @@ export async function getDetails(apiUrl) {
 }
 
 export async function workoutSearch(formData){
-  const res = await fetch(`http://localhost:3001/api/workouts?search=${formData.query}`)
+  const res = await fetch(`${BASE_URL}?search=${formData.query}`)
   const data =  await res.json()
   return data
 }
 
 export async function getExerciseDetails(exerciseName) {
-  const res = await fetch(`http://localhost:3001/api/workouts/search/${exerciseName}`)
+  const res = await fetch(`${BASE_URL}/search/${exerciseName}`)
   const data =  await res.json()
   return data
 }
 
 export async function addExerciseDetail(exerciseDetail) {
-  const res = await fetch(`http://localhost:3001/api/workouts`, {
+  const res = await fetch(`${BASE_URL}`, {
     method: 'POST', 
     headers: {'Authorization': `Bearer ${tokenService.getToken()}`,
     'Content-Type': 'application/json'}, 
