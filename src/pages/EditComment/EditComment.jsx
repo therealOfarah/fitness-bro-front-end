@@ -26,13 +26,11 @@ const EditComment = () => {
     }
   return ( 
     <>
-      <h1>Testing</h1>
       <section>
         <div className="c-container">
-          <h1>Comments</h1>
+          <h1>Update Comment</h1>
           <form id="algin-form"  onSubmit={handleUpdate}>
             <div className="form-group">
-              <h4>Leave a comment</h4>  
               <label for="message">Message</label>
               <textarea type="text" name="comment" value={formData.comment} id=""msg cols="30" rows="5" className="container" onChange={(e) => setFormData({...formData, comment: e.target.value})}></textarea>
             </div>
